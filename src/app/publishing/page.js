@@ -11,7 +11,7 @@ export default function Publishing() {
       
       <div className="relative">
         {/* Left pattern - hidden on mobile */}
-        <div className="hidden lg:block fixed left-[70px] top-0 h-screen z-50">
+        <div className="hidden lg:block fixed left-0 top-0 h-screen z-50">
           <Image 
             src="/assets/images/sidebar.png"
             alt="Left decorative pattern"
@@ -23,7 +23,7 @@ export default function Publishing() {
         </div>
 
         {/* Right pattern - hidden on mobile */}
-        <div className="hidden lg:block fixed right-[70px] top-0 h-screen z-50">
+        <div className="hidden lg:block fixed right-0 top-0 h-screen z-50">
           <Image 
             src="/assets/images/sidebar.png"
             alt="Right decorative pattern"
