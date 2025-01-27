@@ -9,10 +9,10 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white lg:overflow-auto overflow-hidden">
       <Navbar isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       
-      <div className="relative">
+      <div className="relative h-[100dvh] lg:h-auto">
         {/* Left pattern - hidden on mobile */}
         <div className="hidden lg:block fixed left-[70px] top-0 h-screen z-[50]">
           <Image 
@@ -42,11 +42,11 @@ export default function Home() {
           className={`fixed bottom-0 left-0 w-full h-[40vh] ${isMenuOpen ? 'hidden lg:block' : 'block'}`}
           style={{ 
             background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgb(237, 245, 255) 40%, rgb(173, 208, 255, 0.7) 75%, rgba(78, 173, 255, 0.7) 100%)',
-            zIndex: isMenuOpen ? -1 : 60
+            zIndex: isMenuOpen ? -1 : 40
           }}
         />
         
-        <div className="flex-1 min-h-[calc(100vh-80px)] flex flex-col justify-center px-5 pt-0 max-w-[1200px] mx-auto">
+        <div className="flex-1 h-[calc(100dvh-80px)] lg:min-h-[calc(100vh-80px)] flex flex-col justify-center px-5 pt-0 max-w-[1200px] mx-auto overflow-hidden">
           <div className="flex flex-col items-center justify-center text-center -mt-[10vh]">
             {/* Title */}
             <motion.h1 
@@ -86,7 +86,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="inline-flex items-center px-[24px] h-[42px] rounded-[200px] bg-[rgba(0,0,0,0.91)] shadow-[inset_0px_0px_4px_1px_#FFF] backdrop-blur-[7px] text-white"
+              className="inline-flex items-center px-[24px] h-[42px] rounded-[200px] bg-[rgba(0,0,0,0.91)] shadow-[inset_0px_0px_4px_1px_#FFF] backdrop-blur-[7px] text-white relative z-50"
             >
               <span className="text-sm select-none">+500k downloads 🌎</span>
             </motion.div>
