@@ -63,7 +63,7 @@ export default function Portfolio() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[#B2B2B2] text-[18px] mb-16 font-['Rethink_Sans']"
             >
-              We build viral software at rocket speed
+              Turning unsexy problems into cash cows, one app at a time.
             </motion.p>
           </div>
           
@@ -134,7 +134,7 @@ export default function Portfolio() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
-                  <p className="mb-3">Taller is a growth coach app designed for teens under 21 who want to maximize their height potential. Answer a few lifestyle questions to see your future height and get a personalized plan to optimize your growth.</p>
+                  <p className="mb-3">Taller is a height prediction app designed for teens under 21 who want to know their futur height & make sure they reach their true height potential. Answer a few lifestyle questions to see your future height and get a personalized plan to optimize your growth.</p>
                   <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
                     <span className="text-[12px] text-black">500k downloads</span>
                   </div>

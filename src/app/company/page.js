@@ -50,7 +50,7 @@ export default function Company() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[#B2B2B2] text-[18px] mb-16 font-['Rethink_Sans']"
             >
-              No bullshit values here...
+              No bullshit "company values" here...
               <span className="hidden md:inline"> </span>
               <span className="inline md:hidden"><br /></span>
               We just ship stuff people buy

@@ -68,17 +68,19 @@ export default function OpenPositions() {
               id="operations-lead"
               title="Operations Lead"
               category="management"
-              description="We're seeking for an Operations Lead to manage our contractors, ensure deadlines are met, and maintain communication with partners and clients. You'll oversee all aspects of operations, track progress, and ensure smooth project execution. Strong organization and the ability to stay on top of multiple tasks is key."
+              description="We're seeking an Operations Lead to manage our contractors, ensure deadlines are met, and maintain communication with partners and clients to ensure smooth project execution on our apps."
               isOpen={openJobId === "operations-lead"}
               onToggle={() => setOpenJobId(openJobId === "operations-lead" ? null : "operations-lead")}
+              salary="$30k - $40k"
             />
             <JobPosition 
               id="video-editor"
-              title="Creative video editor"
-              category="design"
-              description="We're looking for a creative video producer who can bring scripts to life with visually stunning content. You should be able to take creative direction and constantly improve based on performance feedback. The role also involves filming your own screen and other necessary shots, including within software and game engines."
+              title="Trend Analyst"
+              category="marketing"
+              description="We're looking for a highly curious and motivated individual (preferably under 25) to help us stay ahead of the curve in the fast-moving world of social media. This is a perfect role for someone who spends their day scrolling through TikTok & Insta, with a deep understanding of gen-z psycology, keeping a sharp eye on emerging trends, viral formats and hot new apps."
               isOpen={openJobId === "video-editor"}
               onToggle={() => setOpenJobId(openJobId === "video-editor" ? null : "video-editor")}
+              salary="$12k - $18k"
             />
           </motion.div>
         </div>
@@ -87,7 +89,7 @@ export default function OpenPositions() {
   )
 }
 
-function JobPosition({ id, title, category, description, isOpen, onToggle }) {
+function JobPosition({ id, title, category, description, isOpen, onToggle, salary }) {
   return (
     <div className="border-b border-dashed border-[#E5E5E5] first:border-t select-none">
       <div 
@@ -131,19 +133,26 @@ function JobPosition({ id, title, category, description, isOpen, onToggle }) {
       >
         <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
           <p className="select-none">{description}</p>
-          <a 
-            href="#" 
-            className="inline-flex mt-6 px-4 h-[30px] items-center text-[#0088FF] rounded-[6px] border border-[rgba(0,136,255,0.15)] bg-[rgba(0,136,255,0.10)] text-[14px] gap-2 transition-transform duration-200 hover:scale-[1.02] font-['Rethink_Sans'] font-medium select-none"
-          >
-            Apply today
-            <Image 
-              src="/assets/images/right-arrow.svg"
-              alt="Right arrow"
-              width={16}
-              height={16}
-              className="select-none"
-            />
-          </a>
+          <div className="flex items-center gap-[10px] mt-6">
+            <span className="inline-flex px-4 h-[30px] items-center text-black rounded-[6px] border border-[#E4E7EC] text-[14px] font-['Rethink_Sans'] font-medium select-none">
+              {salary}
+            </span>
+            <a 
+              href="https://form.typeform.com/to/dLsnV4lB"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex px-4 h-[30px] items-center text-[#0088FF] rounded-[6px] border border-[rgba(0,136,255,0.15)] bg-[rgba(0,136,255,0.10)] text-[14px] gap-2 transition-transform duration-200 hover:scale-[1.02] font-['Rethink_Sans'] font-medium select-none"
+            >
+              Apply today
+              <Image 
+                src="/assets/images/right-arrow.svg"
+                alt="Right arrow"
+                width={16}
+                height={16}
+                className="select-none"
+              />
+            </a>
+          </div>
         </div>
       </motion.div>
     </div>
