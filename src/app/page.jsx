@@ -47,7 +47,7 @@ export default function Home() {
         />
         
         <div className="flex-1 h-[calc(100dvh-80px)] lg:min-h-[calc(100vh-80px)] flex flex-col justify-center px-5 pt-0 max-w-[1200px] mx-auto overflow-hidden">
-          <div className="flex flex-col items-center justify-center text-center -mt-[10vh]">
+          <div className="flex flex-col items-center justify-center text-center -mt-[0vh]">
             {/* Title */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
