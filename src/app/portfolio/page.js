@@ -134,9 +134,9 @@ export default function Portfolio() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
-                  <p className="mb-3">Answer a few lifestyle questions to see your future height and get a personalized plan to optimize your growth.</p>
+                  <p className="mb-3">Answer a few lifestyle questions to discover your predicted / potential height and get a personalized routine to optimize your growth.</p>
                   <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
-                    <span className="text-[12px] text-black">500k downloads</span>
+                    <span className="text-[14px] text-black">500k downloads</span>
                   </div>
                 </div>
               </motion.div>
@@ -195,22 +195,22 @@ export default function Portfolio() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
-                  <p>Description for Testo AI project goes here...</p>
+                  <p>Coming soon...</p>
                 </div>
               </motion.div>
             </div>
 
-            {/* Glutes Item */}
+            {/* Redacted Item */}
             <div className="border-b-[1.5px] border-dashed border-[#E5E5E5] first:border-t-[1.5px]">
               <div 
                 className="flex items-center justify-between cursor-pointer h-[70px]"
-                onClick={() => setOpenItemId(openItemId === "glutes" ? null : "glutes")}
+                onClick={() => setOpenItemId(openItemId === "redacted" ? null : "redacted")}
               >
                 <div className="flex items-center gap-4">
                   <div className="w-[30px] h-[30px] bg-black rounded-lg flex items-center justify-center select-none">
                     <span className="text-white">?</span>
                   </div>
-                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Glutes</span>
+                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Redacted</span>
                   <Image 
                     src="/assets/images/link.svg"
                     alt="Link icon"
@@ -225,7 +225,7 @@ export default function Portfolio() {
                   viewBox="0 0 12 7" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`transition-transform duration-300 ${openItemId === "glutes" ? 'rotate-180' : ''}`}
+                  className={`transition-transform duration-300 ${openItemId === "redacted" ? 'rotate-180' : ''}`}
                 >
                   <path 
                     fillRule="evenodd" 
@@ -239,17 +239,17 @@ export default function Portfolio() {
               <motion.div 
                 initial={false}
                 animate={{
-                  height: openItemId === "glutes" ? "auto" : 0,
-                  opacity: openItemId === "glutes" ? 1 : 0
+                  height: openItemId === "redacted" ? "auto" : 0,
+                  opacity: openItemId === "redacted" ? 1 : 0
                 }}
                 transition={{
                   height: { duration: 0.3, ease: "easeOut" },
-                  opacity: { duration: 0.2, delay: openItemId === "glutes" ? 0.1 : 0 }
+                  opacity: { duration: 0.2, delay: openItemId === "redacted" ? 0.1 : 0 }
                 }}
                 className="overflow-hidden"
               >
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
-                  <p>Description for Glutes project goes here...</p>
+                  <p>Coming soon...</p>
                 </div>
               </motion.div>
             </div>
