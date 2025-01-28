@@ -11,14 +11,13 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const desktopMenuItems = [
+    { label: 'Home', href: '/' },
     { label: 'Open positions', href: '/open-positions' },
     { label: 'Portfolio', href: '/portfolio' },
-    { label: 'Publishing', href: '/publishing' },
     { label: 'Company', href: '/company' },
   ];
 
   const mobileMenuItems = [
-    { label: 'Home', href: '/' },
     ...desktopMenuItems
   ];
 
