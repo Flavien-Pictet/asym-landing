@@ -65,7 +65,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-['Rethink_Sans'] text-[16px] lg:text-[18px] text-[#B2B2B2] leading-[1.4] lg:leading-[22.4px] tracking-[0.32px] mb-8"
+              className="font-['Rethink_Sans'] text-[18px] text-[#B2B2B2] leading-[1.4] lg:leading-[22.4px] tracking-[0.32px] mb-8"
             >
               <span className="lg:hidden">
                 We're a small, bootstrapped
@@ -88,7 +88,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="inline-flex items-center px-[24px] h-[42px] rounded-[200px] bg-[rgba(0,0,0,0.91)] shadow-[inset_0px_0px_4px_1px_#FFF] backdrop-blur-[7px] text-white relative z-50"
             >
-              <span className="text-sm select-none">+500k downloads 🌎</span>
+              <span className="text-[16px] select-none">+500k downloads 🌎</span>
             </motion.div>
           </div>
         </div>
