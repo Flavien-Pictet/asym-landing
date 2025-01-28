@@ -10,8 +10,8 @@ const rethinkSans = Rethink_Sans({
 })
 
 export const metadata = {
-  title: 'Your App Name',
-  description: 'Your app description',
+  title: 'Asymmetric Labs',
+  description: 'Turning unsexy problems into cash cows',
 }
 
 export default function RootLayout({ children }) {
