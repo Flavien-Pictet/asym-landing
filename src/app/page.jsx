@@ -14,7 +14,7 @@ export default function Home() {
       
       <div className="relative h-[100dvh] lg:h-auto">
         {/* Left pattern - hidden on mobile */}
-        <div className="hidden lg:block fixed left-[70px] top-0 h-screen z-[50]">
+        <div className="hidden lg:block fixed left-[70px] top-0 h-screen z-[40]">
           <Image 
             src="/assets/images/sidebar.png"
             alt="Left decorative pattern"
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         {/* Right pattern - hidden on mobile */}
-        <div className="hidden lg:block fixed right-[70px] top-0 h-screen z-[50]">
+        <div className="hidden lg:block fixed right-[70px] top-0 h-screen z-[40]">
           <Image 
             src="/assets/images/sidebar.png"
             alt="Right decorative pattern"
@@ -42,7 +42,7 @@ export default function Home() {
           className={`fixed bottom-0 left-0 w-full h-[40vh] ${isMenuOpen ? 'hidden lg:block' : 'block'}`}
           style={{ 
             background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgb(237, 245, 255) 40%, rgb(173, 208, 255, 0.7) 75%, rgba(78, 173, 255, 0.7) 100%)',
-            zIndex: isMenuOpen ? -1 : 40
+            zIndex: isMenuOpen ? -1 : 60
           }}
         />
         
