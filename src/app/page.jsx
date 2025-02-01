@@ -12,18 +12,11 @@ export default function Home() {
   const incrementPerSecond = 6500 / (24 * 60 * 60); // ~0.075 downloads per second
 
   const [count, setCount] = useState(0); // Start from 0
-  const [targetCount, setTargetCount] = useState(() => {
-    // Initialize from localStorage or default value
-    const stored = localStorage.getItem('lastDownloads');
-    const lastTimestamp = localStorage.getItem('lastTimestamp');
-    
-    if (stored && lastTimestamp) {
-      const timeDiff = (Date.now() - parseInt(lastTimestamp)) / 1000;
-      const newDownloads = parseInt(stored) + (incrementPerSecond * timeDiff);
-      return newDownloads;
-    }
-    return 534000;
-  });
+  const targetCount = 500000; // Static target count
+
+  const formatNumber = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'")
+  }
 
   useEffect(() => {
     // Initial animation from 0 to target
@@ -35,7 +28,11 @@ export default function Home() {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / animationDuration, 1);
       
-      setCount(Math.floor(progress * targetCount));
+      if (progress === 1) {
+        setCount('+' + formatNumber(targetCount)); // Add plus sign when animation completes
+      } else {
+        setCount(Math.floor(progress * targetCount));
+      }
       
       if (progress < 1) {
         requestAnimationFrame(animateCount);
@@ -43,24 +40,7 @@ export default function Home() {
     };
     
     requestAnimationFrame(animateCount);
-
-    // Regular update interval
-    const interval = setInterval(() => {
-      setTargetCount(prev => {
-        const newValue = prev + (incrementPerSecond * 10);
-        localStorage.setItem('lastDownloads', newValue.toString());
-        localStorage.setItem('lastTimestamp', Date.now().toString());
-        setCount(newValue); // Update count to match target
-        return newValue;
-      });
-    }, 10000);
-    
-    // Store initial values
-    localStorage.setItem('lastDownloads', targetCount.toString());
-    localStorage.setItem('lastTimestamp', Date.now().toString());
-    
-    return () => clearInterval(interval);
-  }, [targetCount]);
+  }, []); // Empty dependency array since we don't need to track any values
 
   return (
     <main className="min-h-screen bg-white lg:overflow-auto overflow-hidden">
@@ -142,7 +122,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="inline-flex items-center px-[24px] h-[42px] rounded-[200px] bg-[rgba(0,0,0,0.91)] shadow-[inset_0px_0px_4px_1px_#FFF] backdrop-blur-[7px] text-white relative z-50"
             >
-              <span className="text-[16px] select-none">{Math.floor(count).toLocaleString()} downloads 🌎</span>
+              <span className="text-[16px] select-none">{typeof count === 'number' ? formatNumber(count) : count} downloads 🌎</span>
             </motion.div>
           </div>
         </div>
