@@ -11,16 +11,37 @@ export default function Home() {
   // Calculate downloads increment per second (6500 per day converted to per second)
   const incrementPerSecond = 6500 / (24 * 60 * 60); // ~0.075 downloads per second
 
-  const [count, setCount] = useState(500000); // Start directly from target value
+  const [count, setCount] = useState(0); // Start from 0 instead of target value
 
   const formatNumber = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'")
   }
 
   useEffect(() => {
-    // Add plus sign immediately since we start from target value
-    setCount('+' + formatNumber(500000));
-  }, []); 
+    // Animation duration in milliseconds (1 second)
+    const duration = 1000;
+    const targetValue = 500000;
+    const startTime = Date.now();
+
+    const updateCounter = () => {
+      const currentTime = Date.now();
+      const elapsed = currentTime - startTime;
+      
+      if (elapsed < duration) {
+        // Calculate current value based on easing function
+        const progress = elapsed / duration;
+        const easedProgress = 1 - Math.pow(1 - progress, 4); // Easing out quart
+        const currentValue = Math.floor(easedProgress * targetValue);
+        
+        setCount(currentValue);
+        requestAnimationFrame(updateCounter);
+      } else {
+        setCount('+' + formatNumber(targetValue));
+      }
+    };
+
+    requestAnimationFrame(updateCounter);
+  }, []);
 
   return (
     <main className="min-h-screen bg-white lg:overflow-auto overflow-hidden">
