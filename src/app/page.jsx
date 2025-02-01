@@ -11,36 +11,16 @@ export default function Home() {
   // Calculate downloads increment per second (6500 per day converted to per second)
   const incrementPerSecond = 6500 / (24 * 60 * 60); // ~0.075 downloads per second
 
-  const [count, setCount] = useState(0); // Start from 0
-  const targetCount = 500000; // Static target count
+  const [count, setCount] = useState(500000); // Start directly from target value
 
   const formatNumber = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'")
   }
 
   useEffect(() => {
-    // Initial animation from 0 to target
-    const animationDuration = 1000; // 1 second animation
-    const startTime = Date.now();
-    
-    const animateCount = () => {
-      const currentTime = Date.now();
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / animationDuration, 1);
-      
-      if (progress === 1) {
-        setCount('+' + formatNumber(targetCount)); // Add plus sign when animation completes
-      } else {
-        setCount(Math.floor(progress * targetCount));
-      }
-      
-      if (progress < 1) {
-        requestAnimationFrame(animateCount);
-      }
-    };
-    
-    requestAnimationFrame(animateCount);
-  }, []); // Empty dependency array since we don't need to track any values
+    // Add plus sign immediately since we start from target value
+    setCount('+' + formatNumber(500000));
+  }, []); 
 
   return (
     <main className="min-h-screen bg-white lg:overflow-auto overflow-hidden">
