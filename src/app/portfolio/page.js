@@ -6,55 +6,34 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Portfolio() {
-  // Calculate downloads increment per second (6500 per day converted to per second)
-  const incrementPerSecond = 6500 / (24 * 60 * 60); // ~0.075 downloads per second
-
   const [openItemId, setOpenItemId] = useState(null);
-  const [downloads, setDownloads] = useState(534000); // Start with default value
-  const [isClient, setIsClient] = useState(false);
+  
+  // Define a fixed start date and initial downloads
+  const START_DATE = new Date('2025-02-01').getTime();
+  const INITIAL_DOWNLOADS = 534000;
+  const DOWNLOADS_PER_DAY = 6500;
 
-  // Set isClient to true once component mounts
+  const [downloads, setDownloads] = useState(INITIAL_DOWNLOADS);
+
   useEffect(() => {
-    setIsClient(true);
+    const calculateCurrentDownloads = () => {
+      const now = Date.now();
+      const daysSinceStart = (now - START_DATE) / (1000 * 60 * 60 * 24);
+      const additionalDownloads = Math.floor(daysSinceStart * DOWNLOADS_PER_DAY);
+      return INITIAL_DOWNLOADS + additionalDownloads;
+    };
+
+    const updateCounter = () => {
+      setDownloads(calculateCurrentDownloads());
+    };
+
+    // Update immediately and then every second
+    updateCounter();
+    const interval = setInterval(updateCounter, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (!isClient) return; // Only run on client side
-
-    try {
-      const stored = localStorage.getItem('lastDownloads');
-      const lastTimestamp = localStorage.getItem('lastTimestamp');
-      
-      if (stored && lastTimestamp) {
-        const timeDiff = (Date.now() - parseInt(lastTimestamp)) / 1000;
-        const newDownloads = parseInt(stored) + (incrementPerSecond * timeDiff);
-        setDownloads(newDownloads);
-      }
-
-      // Update every 10 seconds
-      const interval = setInterval(() => {
-        setDownloads(prev => {
-          const newValue = prev + (incrementPerSecond * 10);
-          try {
-            localStorage.setItem('lastDownloads', newValue.toString());
-            localStorage.setItem('lastTimestamp', Date.now().toString());
-          } catch (error) {
-            console.error('localStorage error:', error);
-          }
-          return newValue;
-        });
-      }, 10000);
-      
-      // Store initial values
-      localStorage.setItem('lastDownloads', downloads.toString());
-      localStorage.setItem('lastTimestamp', Date.now().toString());
-      
-      return () => clearInterval(interval);
-    } catch (error) {
-      console.error('localStorage error:', error);
-    }
-  }, [isClient]); // Only depend on isClient
-  
   // Format number with apostrophes
   const formatNumber = (num) => {
     return Math.floor(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
