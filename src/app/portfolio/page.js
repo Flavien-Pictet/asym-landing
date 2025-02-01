@@ -63,7 +63,7 @@ export default function Portfolio() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[#B2B2B2] text-[18px] mb-16 font-['Rethink_Sans']"
             >
-              Turning unsexy problems into cash cows, one app at a time.
+              Turning unsexy problems into cash cows, at rocket speed.
             </motion.p>
           </div>
           
