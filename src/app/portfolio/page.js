@@ -2,11 +2,50 @@
 
 import Navbar from '../components/navbar'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Portfolio() {
+  // Calculate downloads increment per second (6500 per day converted to per second)
+  const incrementPerSecond = 6500 / (24 * 60 * 60); // ~0.075 downloads per second
+
   const [openItemId, setOpenItemId] = useState(null);
+  const [downloads, setDownloads] = useState(() => {
+    // Initialize from localStorage or default value
+    const stored = localStorage.getItem('lastDownloads');
+    const lastTimestamp = localStorage.getItem('lastTimestamp');
+    
+    if (stored && lastTimestamp) {
+      const timeDiff = (Date.now() - parseInt(lastTimestamp)) / 1000; // time difference in seconds
+      const newDownloads = parseInt(stored) + (incrementPerSecond * timeDiff);
+      return newDownloads;
+    }
+    return 534000;
+  });
+  
+  useEffect(() => {
+    // Update every 10 seconds
+    const interval = setInterval(() => {
+      setDownloads(prev => {
+        const newValue = prev + (incrementPerSecond * 10);
+        // Store current value and timestamp
+        localStorage.setItem('lastDownloads', newValue.toString());
+        localStorage.setItem('lastTimestamp', Date.now().toString());
+        return newValue;
+      });
+    }, 10000);
+    
+    // Store initial values
+    localStorage.setItem('lastDownloads', downloads.toString());
+    localStorage.setItem('lastTimestamp', Date.now().toString());
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  // Format number with apostrophes
+  const formatNumber = (num) => {
+    return Math.floor(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+  };
 
   return (
     <main className="min-h-screen bg-white">
@@ -136,7 +175,7 @@ export default function Portfolio() {
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
                   <p className="mb-3">Answer a few lifestyle questions to discover your predicted / potential height and get a personalized routine to optimize your growth.</p>
                   <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
-                    <span className="text-[14px] text-black">500k downloads</span>
+                    <span className="text-[14px] text-black">{formatNumber(downloads)} downloads</span>
                   </div>
                 </div>
               </motion.div>

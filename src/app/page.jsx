@@ -2,11 +2,32 @@
 
 import Navbar from './components/navbar'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    const finalCount = 534000
+    const duration = 2000 // 2 seconds for the animation
+    const steps = 60
+    const increment = finalCount / steps
+    let current = 0
+    
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= finalCount) {
+        setCount(finalCount)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(current))
+      }
+    }, duration / steps)
+    
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <main className="min-h-screen bg-white lg:overflow-auto overflow-hidden">
@@ -88,7 +109,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="inline-flex items-center px-[24px] h-[42px] rounded-[200px] bg-[rgba(0,0,0,0.91)] shadow-[inset_0px_0px_4px_1px_#FFF] backdrop-blur-[7px] text-white relative z-50"
             >
-              <span className="text-[16px] select-none">+500k downloads 🌎</span>
+              <span className="text-[16px] select-none">{(count).toLocaleString()} downloads 🌎</span>
             </motion.div>
           </div>
         </div>
