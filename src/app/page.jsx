@@ -121,7 +121,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="inline-flex items-center px-[24px] h-[42px] rounded-[200px] bg-[rgba(0,0,0,0.91)] shadow-[inset_0px_0px_4px_1px_#FFF] backdrop-blur-[7px] text-white relative z-50"
+              className="inline-flex items-center px-[24px] h-[42px] rounded-[200px] bg-[rgba(0,0,0,0.91)] shadow-[inset_0px_0px_4px_1px_#FFF] backdrop-blur-[7px] text-white relative lg:z-50 z-[61]"
             >
               <span className="text-[16px] select-none">{typeof count === 'number' ? formatNumber(count) : count} downloads 🌎</span>
             </motion.div>
