@@ -112,7 +112,7 @@ export default function Company() {
                   </span>
                   {" "}
                   <span className="lg:inline">
-                     We believe it's important to have the humility to accept that everything's moving too fast to predict the next narrative & <span className="text-black/40 font-bold">back to the fundamentals of human psychology</span>, which hasn't changed much over the last 50 years and probably won't anytime soon.
+                     We believe it's important to have the humility to accept that everything's moving too fast to predict the next narrative & <span className="text-black/40 font-bold">go back to the fundamentals of human psychology</span>, which hasn't changed much over the last 50 years and probably won't anytime soon.
                   </span>
                 </div>
                 
