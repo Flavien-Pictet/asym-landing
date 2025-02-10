@@ -85,16 +85,14 @@ export default function Company() {
                 Imagine being a SaaS founder in 2020, thinking you had time. Then LLMs showed up and laughed. The entry barrier to build a SaaS is trending towards 0 and very few software companies will manage to keep a real moat on a tech that's evolving this fast. It's all gonna polarize & only low IQ software and super techy labs will survive. The middle ground will likely die (aka 98% of current B2B SaaS).
               </motion.p>
 
-              <motion.div
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-[30px] inline-flex h-[34px] px-[25px] justify-center items-center rounded-[300px] border border-[rgba(58,113,255,0.15)] bg-[rgba(0,136,255,0.10)]"
+                className="mt-[40px] mb-[40px] text-[18px] font-['Recoleta-Medium'] text-black"
               >
-                <p className="text-[#0088FF] text-[12px] font-['Rethink_Sans'] flex items-center">
-                  DON'T PLAY A LONG-TERM GAME YOU CAN'T WIN
-                </p>
-              </motion.div>
+                Don't play a long-term game you can't win
+              </motion.h3>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -120,16 +118,14 @@ export default function Company() {
                   Sure there&apos;ll be a bit of lag before we hit the &quot;prompt2saas&quot; inflexion point… but it will happen anyway. The beauty of low tech B2C products is in its irrationality and its ability to better withstand the paradigm shift we&apos;re entering. It&apos;s way simpler to sell an emotion than a technical solution where the best engineers on the planet are all competing. <span className="text-black/40 font-bold">Emotions don&apos;t get disrupted</span>. B2C products are emotion-driven, irrational and resilient in a way.
                 </p>
 
-                <motion.div
+                <motion.h3
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="mt-[30px] mb-[30px] inline-flex h-[34px] px-[25px] justify-center items-center rounded-[300px] border border-[rgba(58,113,255,0.15)] bg-[rgba(0,136,255,0.10)]"
+                  className="mt-[40px] mb-[40px] text-[18px] font-['Recoleta-Medium'] text-black"
                 >
-                  <p className="text-[#0088FF] text-[12px] font-['Rethink_Sans'] flex items-center">
-                    THE HOLLYWOOD OF B2C SOFTWARE
-                  </p>
-                </motion.div>
+                  The Hollywood of B2C Software
+                </motion.h3>
 
                 <p className="mb-8">
                   Universal Pictures didn't make every blockbuster in-house &gt; they created a system, recruited top directors, writers and actors &amp; ensured that once a movie hit the box office everything downstream was optimized: marketing / distribution / merchandising... Studios had one job: turn creative potential into predictable profit.
