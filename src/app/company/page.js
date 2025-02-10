@@ -66,7 +66,7 @@ export default function Company() {
                   alt="Sunflowers under blue sky"
                   width={800}
                   height={360}
-                  className="w-full h-auto sm:h-[360px] h-[224px]"
+                  className="w-full h-auto sm:h-[324px] h-[224px]"
                   style={{ objectFit: 'cover' }}
                 />
                 <div className="absolute bottom-[12px] right-[12px] sm:bottom-[21px] sm:right-[21px] bg-[rgba(0,25,47,0.30)] backdrop-blur-[10px] rounded-[200px] px-[21px] py-[8px] flex items-center justify-center">
