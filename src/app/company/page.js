@@ -50,7 +50,7 @@ export default function Company() {
                 transition={{ duration: 0.6 }}
                 className="text-[30px] lg:text-[50px] leading-[1.1] mb-8 font-['Recoleta']"
               >
-                What if Voodoo 
+                What if Voodoo &
                 <br />
                 Rocket Internet had sex?
               </motion.h2>
