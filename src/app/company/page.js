@@ -89,7 +89,7 @@ export default function Company() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-[25px] mb-[25px] lg:mt-[30px] lg:mb-[30px] text-[22px] lg:text-[18px] font-['Recoleta-Medium'] text-black font-bold lg:font-normal"
+                className="mt-[25px] mb-[25px] lg:mt-[30px] lg:mb-[30px] text-[22px] lg:text-[18px] font-['Recoleta'] text-black font-bold lg:font-normal"
               >
                 Don't play a long-term<br className="lg:hidden" /> game you can't win
               </motion.h3>
@@ -122,7 +122,7 @@ export default function Company() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="mt-[25px] mb-[25px] lg:mt-[30px] lg:mb-[30px] text-[22px] lg:text-[18px] font-['Recoleta-Medium'] text-black font-bold lg:font-normal"
+                  className="mt-[25px] mb-[25px] lg:mt-[30px] lg:mb-[30px] text-[22px] lg:text-[18px] font-['Recoleta'] text-black font-bold lg:font-normal"
                 >
                   The Hollywood of B2C Software
                 </motion.h3>
