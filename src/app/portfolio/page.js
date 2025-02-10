@@ -188,13 +188,20 @@ export default function Portfolio() {
                     className="select-none"
                   />
                   <span className="text-[18px] font-['Rethink_Sans'] select-none">Testo AI</span>
-                  <Image 
-                    src="/assets/images/link.svg"
-                    alt="Link icon"
-                    width={14}
-                    height={14}
-                    className="select-none"
-                  />
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=com.asymmetriclabs.testoai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-110 transition-transform select-none"
+                  >
+                    <Image 
+                      src="/assets/images/link.svg"
+                      alt="Link icon"
+                      width={14}
+                      height={14}
+                      className="select-none"
+                    />
+                  </a>
                 </div>
                 <svg 
                   width="12" 
@@ -226,7 +233,7 @@ export default function Portfolio() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
-                  <p>Coming soon...</p>
+                  <p>Coming soon on Apple Store</p>
                 </div>
               </motion.div>
             </div>

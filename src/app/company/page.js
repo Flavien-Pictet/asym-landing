@@ -69,8 +69,8 @@ export default function Company() {
                   className="w-full h-auto"
                   style={{ objectFit: 'cover' }}
                 />
-                <div className="absolute bottom-[12px] right-[12px] sm:bottom-[21px] sm:right-[21px] bg-[rgba(0,25,47,0.60)] backdrop-blur-[10px] rounded-[200px] flex items-center justify-center px-[21px] py-[8px]">
-                  <span className={`${glancyr.className} text-white text-sm lg:text-base leading-none -mt-[3px]`}>
+                <div className="absolute bottom-[12px] right-[12px] sm:bottom-[21px] sm:right-[21px] bg-[rgba(0,25,47,0.60)] backdrop-blur-[10px] rounded-[200px] px-[21px] py-[8px] flex items-center justify-center">
+                  <span className={`${glancyr.className} text-white text-sm lg:text-base translate-y-[-1px] block`}>
                     asymmetric labs
                   </span>
                 </div>
