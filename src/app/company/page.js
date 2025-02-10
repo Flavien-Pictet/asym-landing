@@ -65,8 +65,8 @@ export default function Company() {
                   src="/assets/images/flowers.png"
                   alt="Sunflowers under blue sky"
                   width={800}
-                  height={300}
-                  className="w-full h-auto sm:h-[300px] h-[220px]"
+                  height={360}
+                  className="w-full h-auto sm:h-[360px] h-[224px]"
                   style={{ objectFit: 'cover' }}
                 />
                 <div className="absolute bottom-[12px] right-[12px] sm:bottom-[21px] sm:right-[21px] bg-[rgba(0,25,47,0.60)] backdrop-blur-[10px] rounded-[200px] px-[21px] py-[8px] flex items-center justify-center">
