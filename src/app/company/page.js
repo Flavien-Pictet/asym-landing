@@ -89,9 +89,9 @@ export default function Company() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-[40px] mb-[40px] text-[18px] font-['Recoleta-Medium'] text-black"
+                className="mt-[25px] mb-[25px] lg:mt-[40px] lg:mb-[40px] text-[18px] font-['Recoleta-Medium'] text-black"
               >
-                Don't play a long-term game you can't win
+                Don't play a long-term<br className="lg:hidden" /> game you can't win
               </motion.h3>
 
               <motion.div
@@ -122,7 +122,7 @@ export default function Company() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="mt-[40px] mb-[40px] text-[18px] font-['Recoleta-Medium'] text-black"
+                  className="mt-[25px] mb-[25px] lg:mt-[40px] lg:mb-[40px] text-[18px] font-['Recoleta-Medium'] text-black"
                 >
                   The Hollywood of B2C Software
                 </motion.h3>
