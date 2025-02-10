@@ -110,8 +110,9 @@ export default function Company() {
                   <span className="lg:inline">
                     Yes, products like Notion / Figma / Slack have built defensibility through brand affinity & network effects but they're the exceptions, not the rule. Very few companies can scale fast enough to reach this kind of moat before AI makes them obsolete.
                   </span>
+                  {" "}
                   <span className="lg:inline">
-                    We believe it's important to have the humility to accept that everything's moving too fast to predict the next narrative & <span className="text-black/40 font-bold">back to the fundamentals of human psychology</span>, which hasn't changed much over the last 50 years and probably won't anytime soon.
+                     We believe it's important to have the humility to accept that everything's moving too fast to predict the next narrative & <span className="text-black/40 font-bold">back to the fundamentals of human psychology</span>, which hasn't changed much over the last 50 years and probably won't anytime soon.
                   </span>
                 </div>
                 
