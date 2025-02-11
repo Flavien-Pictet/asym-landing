@@ -82,7 +82,7 @@ export default function Company() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="mt-[30px] text-[14px] font-['Rethink_Sans'] text-black/30 font-medium max-w-[800px] mx-auto"
               >
-                Imagine being a SaaS founder in 2020, thinking you had time. Then LLMs showed up and laughed. The entry barrier to build a SaaS is trending towards 0 and very few software companies will manage to keep a real moat on a tech that's evolving this fast. It's all gonna polarize & only low IQ software and super techy labs will survive. The middle ground will likely die (aka 98% of current B2B SaaS).
+                Imagine being a SaaS founder in 2025, thinking you have time. Then LLMs showed up and laughed. The entry barrier to build a SaaS is trending towards 0 and very few software companies will manage to keep a real moat on a tech that's evolving this fast. It's all gonna polarize & only low IQ software and super techy labs will survive. The middle ground will likely die (aka 98% of current B2B SaaS).
               </motion.p>
 
               <motion.h3

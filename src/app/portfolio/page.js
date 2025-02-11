@@ -189,7 +189,7 @@ export default function Portfolio() {
                   />
                   <span className="text-[18px] font-['Rethink_Sans'] select-none">Testo AI</span>
                   <a 
-                    href="https://play.google.com/store/apps/details?id=com.asymmetriclabs.testoai"
+                    href="https://apps.apple.com/ch/app/testo-ai-boost-yourself/id6741483888?l=en-GB"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform select-none"
@@ -233,7 +233,10 @@ export default function Portfolio() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
-                  <p>Coming soon on Apple Store</p>
+                  <p className="mb-3">Estimate and track your testosterone levels, libido, and energy in real-time & maximize it by following your personalized daily routine to optimize hormone balance.</p>
+                  <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
+                    <span className="text-[14px] text-black">Under GTM</span>
+                  </div>
                 </div>
               </motion.div>
             </div>
