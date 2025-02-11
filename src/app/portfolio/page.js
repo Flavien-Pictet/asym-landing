@@ -251,7 +251,7 @@ export default function Portfolio() {
                   <div className="w-[30px] h-[30px] bg-black rounded-lg flex items-center justify-center select-none">
                     <span className="text-white">?</span>
                   </div>
-                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Redacted</span>
+                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Gloss</span>
                   <Image 
                     src="/assets/images/link.svg"
                     alt="Link icon"
