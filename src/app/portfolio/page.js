@@ -173,7 +173,7 @@ export default function Portfolio() {
               </motion.div>
             </div>
 
-            {/* Testo AI Item */}
+            {/* Ritual Item */}
             <div className="border-b-[1.5px] border-dashed border-[#E5E5E5] first:border-t-[1.5px]">
               <div 
                 className="flex items-center justify-between cursor-pointer h-[70px]"
@@ -182,12 +182,12 @@ export default function Portfolio() {
                 <div className="flex items-center gap-4">
                   <Image 
                     src="/assets/images/testo.png"
-                    alt="Testo AI icon"
+                    alt="Ritual icon"
                     width={30}
                     height={30}
                     className="select-none"
                   />
-                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Testo AI</span>
+                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Ritual</span>
                   <a 
                     href="https://apps.apple.com/ch/app/testo-ai-boost-yourself/id6741483888?l=en-GB"
                     target="_blank"
