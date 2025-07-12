@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isClient, setIsClient] = useState(false)
   
   // Calculate downloads increment per second (6500 per day converted to per second)
   const incrementPerSecond = 6500 / (24 * 60 * 60); // ~0.075 downloads per second
@@ -18,6 +19,14 @@ export default function Home() {
   }
 
   useEffect(() => {
+    // Set client flag to true after hydration
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    // Only run animation on client side to avoid hydration mismatch
+    if (!isClient) return;
+
     // Animation duration in milliseconds (1 second)
     const duration = 1000;
     const targetValue = 500000;
@@ -41,7 +50,7 @@ export default function Home() {
     };
 
     requestAnimationFrame(updateCounter);
-  }, []);
+  }, [isClient]);
 
   return (
     <main className="min-h-screen bg-white lg:overflow-auto overflow-hidden">
