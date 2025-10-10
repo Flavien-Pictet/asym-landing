@@ -235,7 +235,7 @@ export default function Portfolio() {
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
                   <p className="mb-3">Estimate and track your testosterone levels, libido, and energy in real-time & maximize it by following your personalized daily routine to optimize hormone balance.</p>
                   <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
-                    <span className="text-[14px] text-black">No GTM</span>
+                    <span className="text-[14px] text-black">No PMF</span>
                   </div>
                 </div>
               </motion.div>
