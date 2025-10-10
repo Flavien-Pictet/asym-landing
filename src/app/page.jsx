@@ -29,7 +29,7 @@ export default function Home() {
 
     // Animation duration in milliseconds (1 second)
     const duration = 1000;
-    const targetValue = 500000;
+    const targetValue = 2000000;
     const startTime = Date.now();
 
     const updateCounter = () => {
