@@ -235,30 +235,41 @@ export default function Portfolio() {
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
                   <p className="mb-3">Estimate and track your testosterone levels, libido, and energy in real-time & maximize it by following your personalized daily routine to optimize hormone balance.</p>
                   <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
-                    <span className="text-[14px] text-black">Under GTM</span>
+                    <span className="text-[14px] text-black">No GTM</span>
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            {/* Redacted Item */}
+            {/* Gloss Item */}
             <div className="border-b-[1.5px] border-dashed border-[#E5E5E5] first:border-t-[1.5px]">
               <div 
                 className="flex items-center justify-between cursor-pointer h-[70px]"
                 onClick={() => setOpenItemId(openItemId === "redacted" ? null : "redacted")}
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-[30px] h-[30px] bg-black rounded-lg flex items-center justify-center select-none">
-                    <span className="text-white">?</span>
-                  </div>
-                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Gloss</span>
                   <Image 
-                    src="/assets/images/link.svg"
-                    alt="Link icon"
-                    width={14}
-                    height={14}
+                    src="/assets/images/gloss.png"
+                    alt="Gloss icon"
+                    width={30}
+                    height={30}
                     className="select-none"
                   />
+                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Gloss</span>
+                  <a 
+                    href="https://apps.apple.com/us/app/gloss-ai-makeup-analysis/id6742034478"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-110 transition-transform select-none"
+                  >
+                    <Image 
+                      src="/assets/images/link.svg"
+                      alt="Link icon"
+                      width={14}
+                      height={14}
+                      className="select-none"
+                    />
+                  </a>
                 </div>
                 <svg 
                   width="12" 
@@ -290,7 +301,10 @@ export default function Portfolio() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
-                  <p>Coming soon...</p>
+                  <p className="mb-3">Want to elevate your makeup game effortlessly? Gloss AI is your personal beauty coach, helping you analyze, improve, and master your look with the power of AI.</p>
+                  <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
+                    <span className="text-[14px] text-black">No PMF</span>
+                  </div>
                 </div>
               </motion.div>
             </div>
