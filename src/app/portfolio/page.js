@@ -10,8 +10,8 @@ export default function Portfolio() {
   
   // Define a fixed start date and initial downloads
   const START_DATE = new Date('2025-02-01').getTime();
-  const INITIAL_DOWNLOADS = 564000;
-  const DOWNLOADS_PER_DAY = 6500;
+  const INITIAL_DOWNLOADS = 1250000;
+  const DOWNLOADS_PER_DAY = 2500;
 
   const [downloads, setDownloads] = useState(INITIAL_DOWNLOADS);
 
