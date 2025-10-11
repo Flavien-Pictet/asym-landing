@@ -14,7 +14,7 @@ const Navbar = () => {
     { label: 'Home', href: '/' },
     { label: 'Open positions', href: '/open-positions' },
     { label: 'Portfolio', href: '/portfolio' },
-    // { label: 'Company', href: '/company' },
+    { label: 'Company', href: '/company' },
   ];
 
   const mobileMenuItems = [
