@@ -32,7 +32,7 @@ export default function Portfolio() {
     const interval = setInterval(updateCounter, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [START_DATE, INITIAL_DOWNLOADS, DOWNLOADS_PER_DAY]);
 
   // Format number with apostrophes
   const formatNumber = (num) => {
@@ -304,6 +304,75 @@ export default function Portfolio() {
                   <p className="mb-3">Want to elevate your makeup game effortlessly? Gloss AI is your personal beauty coach, helping you analyze, improve, and master your look with the power of AI.</p>
                   <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
                     <span className="text-[14px] text-black">No PMF</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Admitted Item */}
+            <div className="border-b-[1.5px] border-dashed border-[#E5E5E5] first:border-t-[1.5px]">
+              <div 
+                className="flex items-center justify-between cursor-pointer h-[70px]"
+                onClick={() => setOpenItemId(openItemId === "admitted" ? null : "admitted")}
+              >
+                <div className="flex items-center gap-4">
+                  <Image 
+                    src="/assets/images/admitted.png"
+                    alt="Admitted icon"
+                    width={30}
+                    height={30}
+                    className="select-none"
+                  />
+                  <span className="text-[18px] font-['Rethink_Sans'] select-none">Admitted</span>
+                  <a 
+                    href="https://apps.apple.com/ch/app/admitted-join-top-colleges/id6754044270?l=en-GB"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-110 transition-transform select-none"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Image 
+                      src="/assets/images/link.svg"
+                      alt="Link icon"
+                      width={14}
+                      height={14}
+                      className="select-none"
+                    />
+                  </a>
+                </div>
+                <svg 
+                  width="12" 
+                  height="7" 
+                  viewBox="0 0 12 7" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`transition-transform duration-300 ${openItemId === "admitted" ? 'rotate-180' : ''}`}
+                >
+                  <path 
+                    fillRule="evenodd" 
+                    clipRule="evenodd" 
+                    d="M6.60609 6.60613C6.27136 6.94086 5.72864 6.94086 5.39391 6.60613L0.251051 1.46327C-0.0836842 1.12853 -0.0836842 0.585821 0.251051 0.251086C0.585786 -0.0836489 1.1285 -0.0836489 1.46323 0.251086L6 4.78785L10.5368 0.251086C10.8715 -0.0836489 11.4142 -0.0836489 11.7489 0.251086C12.0837 0.585821 12.0837 1.12853 11.7489 1.46327L6.60609 6.60613Z" 
+                    fill="black"
+                  />
+                </svg>
+              </div>
+              
+              <motion.div 
+                initial={false}
+                animate={{
+                  height: openItemId === "admitted" ? "auto" : 0,
+                  opacity: openItemId === "admitted" ? 1 : 0
+                }}
+                transition={{
+                  height: { duration: 0.3, ease: "easeOut" },
+                  opacity: { duration: 0.2, delay: openItemId === "admitted" ? 0.1 : 0 }
+                }}
+                className="overflow-hidden"
+              >
+                <div className="pb-6 text-[#B2B2B2] text-[14px] font-['Rethink_Sans'] font-medium select-none">
+                  <p className="mb-3">Admitted is the all-in-one admissions strategy platform designed to help you gain acceptance into the world&apos;s most selective universities.</p>
+                  <div className="inline-block px-3 py-1" style={{ borderRadius: '6px', border: '1px solid #E4E7EC' }}>
+                    <span className="text-[14px] text-black">Under GTM</span>
                   </div>
                 </div>
               </motion.div>

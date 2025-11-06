@@ -158,7 +158,7 @@ const appPlugs = [
   },
   {
     title: "Reverse-engineer what each school values",
-    subtitle: "every college favors different traits. Admitted breaks down what your top schools actually prioritize > research, leadership, essays, STEM rigor—so you can tailor your app"
+    subtitle: "every college favors different traits. Apps like Admitted breaks down what your top schools actually prioritize > research, leadership, essays, STEM rigor so you can tailor your app"
   },
   {
     title: "fix weak points before you apply",
