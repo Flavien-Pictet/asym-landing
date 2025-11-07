@@ -112,7 +112,7 @@ const instructionalTips = [
   },
   {
     title: "make your essay match your school’s SPECIFIC values",
-    subtitle: "this is where the Common Data Set comes in, almost every school ranks essays + class rigor as “very important.” if your essay doesn’t show depth or align with what matters, it tanks your app even if everything else looks good. this is why i always recommend running your draft through lumisource AT LEAST once, it’s free and gives you a graded review, so you actually know if your essay aligns with that school’s valuess"
+    subtitle: "this is where the Common Data Set comes in, almost every school ranks essays + class rigor as “very important.” if your essay doesn’t show depth or align with what matters, it tanks your app even if everything else looks good"
   },
   {
     title: "quantify your impact",
