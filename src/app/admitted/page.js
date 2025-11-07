@@ -7,19 +7,20 @@ import { motion } from 'framer-motion'
 const firstPersonHooks = [
   "5 things I did to get into harvard 👉",
   "I got into an Ivy League with 3.5 GPA. Here's how",
-  "College apps tips that carried my admission into harvard 👉",
+  "college apps tips that carried my admission into harvard 👉",
+  "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa"
 ]
 
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
-  "Secrets abt college apps I only learned AFTER submitting 👉",
-  "My mom is on harvard's admissions board… here's why they reject a lot of smart students",
-  "my dad is on harvard's admissions board… here's what he told me before submitting my app",
+  "secrets abt college apps I only learned AFTER submitting 👉",
+  "my mom is on harvard admissions board… here's why they reject a lot of smart students",
+  "my dad is on harvard admissions board… here's what he told me before submitting my app",
   "things i wish someone told me before applying to college 👉",
   "5 things to do before submitting your college apps 👉",
-  "College app tips that will get you accepted 👉",
+  "college app tips that will get you accepted 👉",
   "Secrets all international students use to get into Ivy Leagues",
-  "How to get into an Ivy League if you're DUMB 👉"
+  "how to get into an Ivy League if you're DUMB 👉"
 ]
 
 // First person tips
@@ -34,7 +35,7 @@ const firstPersonTips = [
   },
   {
     title: "I scaled something real",
-    subtitle: "I ran a Zoom tutoring group that reached 300+ students. By senior year, we had 20 volunteers. I framed it as leadership + adaptability."
+    subtitle: "I ran a Zoom tutoring group that reached 300+ students. By senior year we had 20 volunteers. I framed it as leadership + adaptability."
   },
   {
     title: "I rewrote my personal statement 9 times",
@@ -109,43 +110,51 @@ const instructionalTips = [
     subtitle: "Replace vague claims with numbers. \"Led a team of 12\" - \"increased fundraising by 50%\" - \"served 300+ students\" => metrics = credibility"
   },
   {
-    title: "Cut the filler",
+    title: "verify deadlines + portals",
+    subtitle: "Different schools use different systems. missing one kills your chances"
+  },
+  {
+    title: "cut the fluff",
     subtitle: "remove any extracurricular that doesn't add a new dimension to your profile. One strong spike beats 8 average clubs"
   },
   {
     title: "treat school like a 9-5",
-    subtitle: "a great way to do this is by picking a place to study that is not your room/house. I suggest cafes, parks, libraries etc"
+    subtitle: "a great way to do this is by picking a place to study that is not your room/house. I suggest cafes, parks & libraries"
   },
   {
-    title: "Avoid the perfection trap",
+    title: "avoid the perfection trap",
     subtitle: "over-polished apps feel fake. Vulnerability and real obstacles make you memorable & not robotic excellence"
   },
   {
-    title: "Showcase intellectual curiosity",
+    title: "showcase intellectual curiosity",
     subtitle: "schools don't just want achievers… they want thinkers. Mention how you explore topics beyond class, not just what grades you got"
   },
   {
-    title: "Tie every activity back to impact",
+    title: "get an outside read",
+    subtitle: "Have someone who doesn't know your skim for clarity + flow"
+  },
+  {
+    title: "tie every activity back to impact",
     subtitle: "admissions officers filter out activities that only benefit you. Show how your actions changed other people, not just your resume"
   },
   {
-    title: "Eliminate narrative conflicts",
+    title: "eliminate narrative conflicts",
     subtitle: "Your major, activities, and essays should tell the same story. Mixed signals (business + medicine + art) confuse admissions officers and dilute your impact"
   },
   {
-    title: "Build a digital footprint colleges can see",
+    title: "build a digital footprint colleges can see",
     subtitle: "A personal site, research portfolio, or public project page turns your application from claims into proof. Visibility = legitimacy"
   },
   {
-    title: "Use niche interests as differentiators",
+    title: "use niche interests as differentiators",
     subtitle: "Hyper-specific academic passions (quantum biology, neuroeconomics, biomechatronics) stand out more than generic \"STEM\" or \"pre-med\" labels."
   },
   {
-    title: "Prioritize junior year grades above all else",
+    title: "prioritize junior year grades above all else",
     subtitle: "Junior year is the single most heavily weighted academic year in admissions. A 4.0 sophomore year matters less than an upward trend in 11th grade. One semester can change your admit odds"
   },
   {
-    title: "Build external validation before you apply",
+    title: "build external validation before you apply",
     subtitle: "Don't wait for colleges to decide if you're exceptional > get featured, published, awarded or recognized beforehand. Colleges follow prestige, not create it"
   }
 ]
@@ -153,11 +162,15 @@ const instructionalTips = [
 // App plugs (work with both)
 const appPlugs = [
   {
-    title: "Use tools that make it easier",
+    title: "use tools that make it easier",
     subtitle: "once I found out there were apps like Admitted that breaks down your whole college strategy based on your own strength & weakness?? yeah. gamechanger 🩷"
   },
   {
-    title: "Reverse-engineer what each school values",
+    title: "run your essay draft through Admitted at least once",
+    subtitle: "It gives a completely graded review with delailed note"
+  },
+  {
+    title: "reverse-engineer what each school values",
     subtitle: "every college favors different traits. Apps like Admitted breaks down what your top schools actually prioritize > research, leadership, essays, STEM rigor so you can tailor your app"
   },
   {
@@ -169,27 +182,23 @@ const appPlugs = [
     subtitle: "I uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
   },
   {
-    title: "Use data to predict your admit odds",
+    title: "use data to predict your admit odds",
     subtitle: "top students don't \"hope\" they get in > they quantify their exact chances. Apps like Admitted simulate your acceptance odds by school and show what's missing in your profile."
   },
   {
-    title: "Use this hidden app no one's talks about ✨",
-    subtitle: "There's this app called Admitted that breaks down your whole college strategy. It shows your admit odds, school fit & helps with your personal statement. It's like having an admissions officer in your pocket 🧠📚"
+    title: "use this hidden app no one's talks about ✨",
+    subtitle: "There's this app called \"admitted\" that breaks down your whole college strategy. It shows your admit odds, school fit & helps with your personal statement. It's like having an admissions officer in your pocket 🧠📚"
   },
   {
-    title: "Stop guessing your chances",
-    subtitle: "Admitted predicts your acceptance odds using your real stats & extracurriculars. It even tells you what's lowering your chances and how to boost them before you apply."
-  },
-  {
-    title: "an ex harvard admission officier showed me this hidden tool",
-    subtitle: "it's called Admitted. it simulates how admissions officers review applications internally. you put in your stats, activities, and essays, and it literally shows your admit chances, school fit, and what's lowering your odds. it even tells you exactly what to fix before you submit 💌🎓"
+    title: "stop guessing your chances",
+    subtitle: "there's this app\"admitted\" that predicts your acceptance odds using your real stats & extracurriculars. It even tells you what's lowering your chances and how to boost them before you apply."
   },
   {
     title: "what helped me the most?",
-    subtitle: "using apps like Admitted that literally break down my entire application and told me what to improve."
+    subtitle: "using apps like \"Admitted\" that literally break down my entire application and told me what to improve."
   },
   {
-    title: "AI Resources",
+    title: "AI resources",
     subtitle: "There's tools like Admitted where u upload your entire app & get a breakdown of what Ivy League committees value most in cases like yours so u know what to fix *before* you apply."
   }
 ]
