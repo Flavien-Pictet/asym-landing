@@ -5,21 +5,21 @@ import { motion } from 'framer-motion'
 
 // First person hooks (use with "I" tips)
 const firstPersonHooks = [
-  "Secrets abt college apps I only learned AFTER submitting 👉",
-  "5 things I did to get into harvard",
+  "5 things I did to get into harvard 👉",
   "I got into an Ivy League with 3.5 GPA. Here's how",
-  "my dad is on harvard's admissions board… here's what he looks for in essays",
-  "College apps tips that carried my admission into harvard",
-  "My mom is on harvard's admissions board, here's why they reject a lot of smart students"
+  "College apps tips that carried my admission into harvard 👉",
 ]
 
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
-  "things i wish someone told me before applying to college",
-  "5 things to do before submitting your college apps!",
-  "College app tips that will get you accepted",
-  "The secret all international students use to get into Ivy Leagues",
-  "How to get into an Ivy League university if you're DUMB"
+  "Secrets abt college apps I only learned AFTER submitting 👉",
+  "My mom is on harvard's admissions board… here's why they reject a lot of smart students",
+  "my dad is on harvard's admissions board… here's what he told me before submitting my app",
+  "things i wish someone told me before applying to college 👉",
+  "5 things to do before submitting your college apps 👉",
+  "College app tips that will get you accepted 👉",
+  "Secrets all international students use to get into Ivy Leagues",
+  "How to get into an Ivy League if you're DUMB 👉"
 ]
 
 // First person tips
