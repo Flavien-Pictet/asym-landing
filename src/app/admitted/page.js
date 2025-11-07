@@ -14,6 +14,7 @@ const firstPersonHooks = [
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
   "secrets abt college apps I only learned AFTER submitting 👉",
+  "what i wish i'd known before applying to college (as a high school senior) 👉",
   "my mom is on harvard admissions board… here's why they reject a lot of smart students",
   "my dad is on harvard admissions board… here's what he told me before submitting my app",
   "things i wish someone told me before applying to college 👉",
@@ -104,6 +105,14 @@ const instructionalTips = [
   {
     title: "make your major obvious",
     subtitle: "Admissions officers shouldn't have to guess your academic focus. Your activities, essays, and awards all need to point in one direction"
+  },
+  {
+    title: "the spiky vs. well-rounded myth",
+    subtitle: "colleges actually don’t want “perfectly balanced” students, they want students with a spike, something that makes you stand out. if you look like you did “a little of everything,” you might get overlooked"
+  },
+  {
+    title: "make your essay match your school’s SPECIFIC values",
+    subtitle: "this is where the Common Data Set comes in, almost every school ranks essays + class rigor as “very important.” if your essay doesn’t show depth or align with what matters, it tanks your app even if everything else looks good. this is why i always recommend running your draft through lumisource AT LEAST once, it’s free and gives you a graded review, so you actually know if your essay aligns with that school’s valuess"
   },
   {
     title: "quantify your impact",
