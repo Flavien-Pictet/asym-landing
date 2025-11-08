@@ -42,7 +42,7 @@ const firstPersonTips = [
   },
   {
     title: "i scaled something real",
-    subtitle: "i ran a zoom tutoring group that reached 400+ students. by senior year we had 25 volunteers. i framed it as leadership + adaptability."
+    subtitle: "i ran a zoom tutoring group that reached 400+ students. by senior year we had 25 volunteers. i framed it as leadership + adaptability"
   },
   {
     title: "i rewrote my personal statement 9 times",
@@ -166,11 +166,11 @@ const instructionalTips = [
   },
   {
     title: "build a digital footprint colleges can see",
-    subtitle: "a personal site, research portfolio, or public project page turns your application from claims into proof. visibility = legitimacy"
+    subtitle: "a personal site, research portfolio or public project page turns your application from claims into proof. visibility = legitimacy"
   },
   {
     title: "use niche interests as differentiators",
-    subtitle: "hyper specific academic passions (quantum biology, neuroeconomics, biomechatronics) stand out more than generic \"STEM\" or \"pre-med\" labels."
+    subtitle: "hyper specific academic passions (quantum biology, neuroeconomics, biomechatronics) stand out more than generic \"STEM\" or \"pre-med\" labels"
   },
   {
     title: "prioritize junior year grades above all else",
@@ -214,7 +214,7 @@ const firstPersonAppPlugs = [
     subtitle: "there was this app called \"Admitted\" that broke down my whole college strategy. It showed my admit odds, school fit & helped with my personal statement. It was like having an admissions officer in my pocket 🧠📚"
   },
   {
-    title: "I stopped guessing my chances",
+    title: "i stopped guessing my chances",
     subtitle: "there was this app\"Admitted\" that predicted my acceptance odds using my real stats & extracurriculars. It even told me what was lowering my chances and how to boost them before I applied"
   },
   {
@@ -223,7 +223,7 @@ const firstPersonAppPlugs = [
   },
   {
     title: "AI was my secret weapon",
-    subtitle: "i used this app \"Admitted\" where i uploaded my entire app & got a breakdown of what ivy league committees valued most in cases like mine so I knew what to fix *before* I applied."
+    subtitle: "i used this app \"Admitted\" where i uploaded my entire app & got a breakdown of what ivy league committees valued most in cases like mine so I knew what to fix before i applied"
   }
 ]
 
@@ -255,7 +255,7 @@ const neutralAppPlugs = [
   },
   {
     title: "use data to predict your admit odds",
-    subtitle: "top students don't \"hope\" they get in > they quantify their exact chances. Apps like Admitted simulate your acceptance odds by school and show what's missing in your profile."
+    subtitle: "top students don't \"hope\" they get in > they quantify their exact chances. Apps like Admitted simulate your acceptance odds by school and show what's missing in your profile"
   },
   {
     title: "use this hidden app no one's talks about ✨",
@@ -267,7 +267,7 @@ const neutralAppPlugs = [
   },
   {
     title: "AI resources",
-    subtitle: "there's tools like Admitted where u upload your entire app & get a breakdown of what ivy league committees value most in cases like yours so u know what to fix *before* you apply."
+    subtitle: "there's apps like \"Admitted\" where u upload your entire app & get a breakdown of what ivy league committees value most in cases like yours so u know what to fix before you apply."
   }
 ]
 
