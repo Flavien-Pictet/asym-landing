@@ -108,7 +108,7 @@ const instructionalTips = [
   },
   {
     title: "the spiky vs. well-rounded myth",
-    subtitle: "colleges actually don’t want “perfectly balanced” students, they want students with a spike, something that makes you stand out. if you look like you did “a little of everything,” you might get overlooked"
+    subtitle: "colleges actually don’t want “perfectly balanced” students, they want students with a spike, something that makes you stand out. if you look like you did “a little of everything” you're cooked"
   },
   {
     title: "make your essay match your school’s SPECIFIC values",
@@ -124,7 +124,7 @@ const instructionalTips = [
   },
   {
     title: "cut the fluff",
-    subtitle: "remove any extracurricular that doesn't add a new dimension to your profile. One strong spike beats 8 average clubs"
+    subtitle: "remove any extracurricular that doesn't add a new dimension to your profile. 1 strong spike beats 8 average clubs"
   },
   {
     title: "treat school like a 9-5",
@@ -152,7 +152,7 @@ const instructionalTips = [
   },
   {
     title: "build a digital footprint colleges can see",
-    subtitle: "a personal site, research portfolio, or public project page turns your application from claims into proof. Visibility = legitimacy"
+    subtitle: "a personal site, research portfolio, or public project page turns your application from claims into proof. visibility = legitimacy"
   },
   {
     title: "use niche interests as differentiators",
@@ -160,7 +160,7 @@ const instructionalTips = [
   },
   {
     title: "prioritize junior year grades above all else",
-    subtitle: "junior year is the single most heavily weighted academic year in admissions. A 4.0 sophomore year matters less than an upward trend in 11th grade. One semester can change your admit odds"
+    subtitle: "junior year is the single most heavily weighted academic year in admissions. a 4.0 sophomore year matters less than an upward trend in 11th grade. 1 semester can change your admit odds"
   },
   {
     title: "build external validation before you apply",
@@ -168,8 +168,52 @@ const instructionalTips = [
   }
 ]
 
-// App plugs (work with both)
-const appPlugs = [
+// First person app plugs (use with first person hooks)
+const firstPersonAppPlugs = [
+  {
+    title: "I used tools that made it easier",
+    subtitle: "once I found out there were apps like Admitted that broke down my whole college strategy based on my own strength & weakness?? yeah. gamechanger 🩷"
+  },
+  {
+    title: "I ran my essay draft through Admitted at least once",
+    subtitle: "it gave me a completely graded review with delailed note"
+  },
+  {
+    title: "I reverse-engineered what each school values",
+    subtitle: "every college favored different traits. Apps like Admitted broke down what my top schools actually prioritized > research, leadership, essays, STEM rigor so I could tailor my app"
+  },
+  {
+    title: "I fixed weak points before I applied",
+    subtitle: "most rejections came from silent red flags (weak essay tone, GPA dips & extracurricular imbalance). So I used apps like Admitted > it scanned my profile and told me exactly what was hurting me & how to fix it"
+  },
+  {
+    title: "I saved time",
+    subtitle: "I uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
+  },
+  {
+    title: "I used data to predict my admit odds",
+    subtitle: "top students didn't \"hope\" they got in > they quantified their exact chances. Apps like Admitted simulated my acceptance odds by school and showed what was missing in my profile."
+  },
+  {
+    title: "I used this hidden app no one's talks about ✨",
+    subtitle: "there was this app called \"admitted\" that broke down my whole college strategy. It showed my admit odds, school fit & helped with my personal statement. It was like having an admissions officer in my pocket 🧠📚"
+  },
+  {
+    title: "I stopped guessing my chances",
+    subtitle: "there was this app\"admitted\" that predicted my acceptance odds using my real stats & extracurriculars. It even told me what was lowering my chances and how to boost them before I applied."
+  },
+  {
+    title: "what helped me the most?",
+    subtitle: "using apps like \"Admitted\" that literally broke down my entire application and told me what to improve."
+  },
+  {
+    title: "AI resources I used",
+    subtitle: "there were tools like Admitted where I uploaded my entire app & got a breakdown of what ivy league committees valued most in cases like mine so I knew what to fix *before* I applied."
+  }
+]
+
+// Neutral/instructional app plugs (use with neutral hooks)
+const neutralAppPlugs = [
   {
     title: "use tools that make it easier",
     subtitle: "once I found out there were apps like Admitted that breaks down your whole college strategy based on your own strength & weakness?? yeah. gamechanger 🩷"
@@ -225,13 +269,14 @@ export default function AdmittedPage() {
       : neutralHooks[Math.floor(Math.random() * neutralHooks.length)]
     
     const tipsPool = useFirstPerson ? firstPersonTips : instructionalTips
+    const appPlugsPool = useFirstPerson ? firstPersonAppPlugs : neutralAppPlugs
     
     // Shuffle and select 4 tips
     const shuffledTips = [...tipsPool].sort(() => Math.random() - 0.5)
     const selectedTips = shuffledTips.slice(0, 4)
     
-    // Select random app plug
-    const appPlug = appPlugs[Math.floor(Math.random() * appPlugs.length)]
+    // Select random app plug from the appropriate pool
+    const appPlug = appPlugsPool[Math.floor(Math.random() * appPlugsPool.length)]
     
     // Create the 6-screen structure
     const newPost = [
