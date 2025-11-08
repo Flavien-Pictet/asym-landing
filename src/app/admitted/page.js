@@ -164,7 +164,7 @@ const instructionalTips = [
   },
   {
     title: "build external validation before you apply",
-    subtitle: "Don't wait for colleges to decide if you're exceptional > get featured, published, awarded or recognized beforehand. Colleges follow prestige, not create it"
+    subtitle: "Don't wait for colleges to decide if you're exceptional > get featured, published & awarded or recognized beforehand."
   }
 ]
 
