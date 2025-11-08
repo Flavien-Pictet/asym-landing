@@ -6,13 +6,18 @@ import { motion } from 'framer-motion'
 // First person hooks (use with "I" tips)
 const firstPersonHooks = [
   "5 things I did to get into harvard 👉",
+  "how i got into an ivy with a low SAT",
   "5 things I did to get into stanford 👉",
+  "i applied to 24 colleges & was accept to 19 (including Duke & NYU) here's how 👉",
   "i got into an Ivy League with 3.5 GPA. Here's how 👉",
   "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa"
 ]
 
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
+  "ONLY things u need to know to get into THE IVIES",
+  "exposing college admissions secrets",
+  "5 non-basic tips to help you get into an Ivy league",
   "secrets abt college apps I only learned AFTER submitting 👉",
   "college apps tips that carried my admission into harvard 👉",
   "what i wish i'd known before applying to college (as a high school senior)",
@@ -112,6 +117,10 @@ const instructionalTips = [
     subtitle: "admissions officers shouldn't have to guess your academic focus. your activities, essays & awards all need to point in one direction"
   },
   {
+    title: "take the MBTI test",
+    subtitle: "it helps identify natural strengths & weaknesses so the strategy aligns with your actual personality… ultimately that’s what you wanna show to AOs"
+  },
+  {
     title: "the spiky vs. well-rounded myth",
     subtitle: "colleges actually don’t want “perfectly balanced” students, they want students with a spike, something that makes you stand out. if you look like you did “a little of everything” you're cooked"
   },
@@ -185,7 +194,7 @@ const firstPersonAppPlugs = [
   },
   {
     title: "i reverse-engineered what each school values",
-    subtitle: "every college favored different traits. Apps like Admitted broke down what my top schools actually prioritized > research, leadership, essays, STEM rigor so I could tailor my app"
+    subtitle: "every college favored different traits. apps like \"Admitted\" broke down what my top schools actually prioritized > research, leadership, essays, STEM rigor so I could tailor my app"
   },
   {
     title: "i fixed weak points before I applied",
@@ -193,28 +202,28 @@ const firstPersonAppPlugs = [
   },
   {
     title: "i saved time",
-    subtitle: "i uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
+    subtitle: "i uploaded my whole application into an app called \"Admitted\". It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
   },
   {
     title: "i used data to predict my admit odds",
-    subtitle: "top students didn't \"hope\" they got in > they quantified their exact chances. Apps like Admitted simulated my acceptance odds by school and showed what was missing in my profile"
+    subtitle: "top students didn't \"hope\" they got in > they quantified their exact chances. Apps like \"Admitted\" simulated my acceptance odds by school and showed what was missing in my profile"
   },
  
   {
     title: "i used this hidden app no one's talks about ✨",
-    subtitle: "there was this app called \"admitted\" that broke down my whole college strategy. It showed my admit odds, school fit & helped with my personal statement. It was like having an admissions officer in my pocket 🧠📚"
+    subtitle: "there was this app called \"Admitted\" that broke down my whole college strategy. It showed my admit odds, school fit & helped with my personal statement. It was like having an admissions officer in my pocket 🧠📚"
   },
   {
     title: "I stopped guessing my chances",
-    subtitle: "there was this app\"admitted\" that predicted my acceptance odds using my real stats & extracurriculars. It even told me what was lowering my chances and how to boost them before I applied"
+    subtitle: "there was this app\"Admitted\" that predicted my acceptance odds using my real stats & extracurriculars. It even told me what was lowering my chances and how to boost them before I applied"
   },
   {
     title: "what helped me the most?",
     subtitle: "using apps like \"Admitted\" that literally broke down my entire application and told me what to improve."
   },
   {
-    title: "AI resources I used",
-    subtitle: "there were tools like Admitted where I uploaded my entire app & got a breakdown of what ivy league committees valued most in cases like mine so I knew what to fix *before* I applied."
+    title: "AI was my secret weapon",
+    subtitle: "i used this app \"Admitted\" where i uploaded my entire app & got a breakdown of what ivy league committees valued most in cases like mine so I knew what to fix *before* I applied."
   }
 ]
 
