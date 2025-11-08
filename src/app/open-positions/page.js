@@ -68,7 +68,7 @@ export default function OpenPositions() {
               id="operations-lead"
               title="Operations Lead"
               category="management"
-              description="We're seeking an Operations Lead to manage our contractors, ensure deadlines are met, and maintain communication with partners and clients to ensure smooth project execution on our apps."
+              description="We're seeking an Operations Lead to manage our contractors, ensure deadlines are met & maintain communication with partners and clients to ensure smooth project execution on our apps."
               isOpen={openJobId === "operations-lead"}
               onToggle={() => setOpenJobId(openJobId === "operations-lead" ? null : "operations-lead")}
               salary="$30k - $40k"

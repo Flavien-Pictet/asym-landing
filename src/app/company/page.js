@@ -132,7 +132,7 @@ export default function Company() {
                 </p>
 
                 <p className="mb-8">
-                  The genius of Voodoo &amp; Rocket Internet wasn't in making original products &gt; it was in <span className="text-black/40 font-bold">industrializing the creative process</span>. They didn't guess what would work, they built feedback loops to systematically test and double down. What we're building here is an industrial cashflow factory where software products are assembly-line tested. We iterate like mad, and when something clicks we scale. Don't be afraid to rip off existing models and straight-up clone them with better execution.
+                  The genius of Voodoo &amp; Rocket Internet wasn't in making original products &gt; it was in <span className="text-black/40 font-bold">industrializing the creative process</span>. They didn't guess what would work, they built feedback loops to systematically test and double down. What we're building here is an industrial cashflow factory where software products are assembly-line tested. We iterate like mad & when something clicks we scale. Don't be afraid to rip off existing models and straight-up clone them with better execution.
                 </p>
 
                 <p>

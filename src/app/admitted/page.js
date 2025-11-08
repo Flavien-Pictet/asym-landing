@@ -15,7 +15,7 @@ const firstPersonHooks = [
 const neutralHooks = [
   "secrets abt college apps I only learned AFTER submitting 👉",
   "what i wish i'd known before applying to college (as a high school senior)",
-  "my mom is on harvard admissions board… here's why they reject a lot of smart students",
+  "my mom is on harvard admissions board… here's the actual sauce to get accepted anywhere",
   "my dad is on harvard admissions board… here's what he told me before submitting my app",
   "things i wish someone told me before applying to college 👉",
   "5 things to do before submitting your college apps 👉",
@@ -84,15 +84,15 @@ const firstPersonTips = [
   },
   {
     title: "I built relationships with admissions indirectly",
-    subtitle: "College fly-ins, virtual info sessions, school-specific essays > every touchpoint is tracked. Demonstrated interest is real. Invisible applicants get ignored"
+    subtitle: "college fly-ins, virtual info sessions, school-specific essays > every touchpoint is tracked. Demonstrated interest is real. Invisible applicants get ignored"
   },
   {
     title: "I engineered recommendation letters",
-    subtitle: "I didn't just ask for recs, I gave my teachers a brag sheet with my narrative, key moments & impact metrics. Good recs are written for you. Great recs are written with you"
+    subtitle: "i didn't just ask for recs, I gave my teachers a brag sheet with my narrative, key moments & impact metrics. Good recs are written for you. Great recs are written with you"
   },
   {
     title: "I targeted institutional needs",
-    subtitle: "Admissions isn't a meritocracy, it's strategic. Schools admit based on what they need: first-gen, certain majors, geographic diversity, niche academic interests. I aligned myself with their goals not mine"
+    subtitle: "admissions isn't a meritocracy, it's strategic. Schools admit based on what they need: first-gen, certain majors, geographic diversity, niche academic interests. I aligned myself with their goals not mine"
   },
   {
     title: "I wrote like a human, not a brochure",
@@ -104,7 +104,7 @@ const firstPersonTips = [
 const instructionalTips = [
   {
     title: "make your major obvious",
-    subtitle: "Admissions officers shouldn't have to guess your academic focus. Your activities, essays, and awards all need to point in one direction"
+    subtitle: "admissions officers shouldn't have to guess your academic focus. your activities, essays & awards all need to point in one direction"
   },
   {
     title: "the spiky vs. well-rounded myth",
@@ -116,11 +116,11 @@ const instructionalTips = [
   },
   {
     title: "quantify your impact",
-    subtitle: "Replace vague claims with numbers. \"Led a team of 12\" - \"increased fundraising by 50%\" - \"served 300+ students\" => metrics = credibility"
+    subtitle: "replace vague claims with numbers. \"Led a team of 12\" - \"increased fundraising by 50%\" - \"served 300+ students\" => metrics = credibility"
   },
   {
     title: "verify deadlines + portals",
-    subtitle: "Different schools use different systems. missing one kills your chances"
+    subtitle: "different schools use different systems. missing one kills your chances"
   },
   {
     title: "cut the fluff",
@@ -136,11 +136,11 @@ const instructionalTips = [
   },
   {
     title: "showcase intellectual curiosity",
-    subtitle: "schools don't just want achievers… they want thinkers. Mention how you explore topics beyond class, not just what grades you got"
+    subtitle: "schools don't just want achievers… they want thinkers. mention how you explore topics beyond class, not just what grades you got"
   },
   {
     title: "get an outside read",
-    subtitle: "Have someone who doesn't know your skim for clarity + flow"
+    subtitle: "have someone who doesn't know your skim for clarity + flow"
   },
   {
     title: "tie every activity back to impact",
@@ -148,23 +148,23 @@ const instructionalTips = [
   },
   {
     title: "eliminate narrative conflicts",
-    subtitle: "Your major, activities, and essays should tell the same story. Mixed signals (business + medicine + art) confuse admissions officers and dilute your impact"
+    subtitle: "your major, activities & essays should tell the same story. Mixed signals (business + medicine + art) confuse admissions officers and dilute your impact"
   },
   {
     title: "build a digital footprint colleges can see",
-    subtitle: "A personal site, research portfolio, or public project page turns your application from claims into proof. Visibility = legitimacy"
+    subtitle: "a personal site, research portfolio, or public project page turns your application from claims into proof. Visibility = legitimacy"
   },
   {
     title: "use niche interests as differentiators",
-    subtitle: "Hyper-specific academic passions (quantum biology, neuroeconomics, biomechatronics) stand out more than generic \"STEM\" or \"pre-med\" labels."
+    subtitle: "hyper specific academic passions (quantum biology, neuroeconomics, biomechatronics) stand out more than generic \"STEM\" or \"pre-med\" labels."
   },
   {
     title: "prioritize junior year grades above all else",
-    subtitle: "Junior year is the single most heavily weighted academic year in admissions. A 4.0 sophomore year matters less than an upward trend in 11th grade. One semester can change your admit odds"
+    subtitle: "junior year is the single most heavily weighted academic year in admissions. A 4.0 sophomore year matters less than an upward trend in 11th grade. One semester can change your admit odds"
   },
   {
     title: "build external validation before you apply",
-    subtitle: "Don't wait for colleges to decide if you're exceptional > get featured, published & awarded or recognized beforehand."
+    subtitle: "don't wait for colleges to decide if you're exceptional > get featured, published & awarded or recognized beforehand."
   }
 ]
 
@@ -176,7 +176,7 @@ const appPlugs = [
   },
   {
     title: "run your essay draft through Admitted at least once",
-    subtitle: "It gives a completely graded review with delailed note"
+    subtitle: "it gives a completely graded review with delailed note"
   },
   {
     title: "reverse-engineer what each school values",
@@ -196,7 +196,7 @@ const appPlugs = [
   },
   {
     title: "use this hidden app no one's talks about ✨",
-    subtitle: "There's this app called \"admitted\" that breaks down your whole college strategy. It shows your admit odds, school fit & helps with your personal statement. It's like having an admissions officer in your pocket 🧠📚"
+    subtitle: "there's this app called \"admitted\" that breaks down your whole college strategy. It shows your admit odds, school fit & helps with your personal statement. It's like having an admissions officer in your pocket 🧠📚"
   },
   {
     title: "stop guessing your chances",
@@ -208,7 +208,7 @@ const appPlugs = [
   },
   {
     title: "AI resources",
-    subtitle: "There's tools like Admitted where u upload your entire app & get a breakdown of what Ivy League committees value most in cases like yours so u know what to fix *before* you apply."
+    subtitle: "there's tools like Admitted where u upload your entire app & get a breakdown of what ivy league committees value most in cases like yours so u know what to fix *before* you apply."
   }
 ]
 
