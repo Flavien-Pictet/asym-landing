@@ -98,7 +98,11 @@ const firstPersonTips = [
   {
     title: "i wrote like a human",
     subtitle: "polished, try-hard essays blend in. Real stories with imperfect edges stand out. If it sounds like ChatGPT or a press release it's an automatic pass"
-  }
+  },
+  {
+    title: "i stopped caring about AP exam",
+    subtitle: "i learned that AP test scores literally didn’t matter for admissions > what mattered was course rigor on my transcript, not the 1–5 score I got on the AP exam"
+  },
 ]
 
 // Instructional/neutral tips
@@ -172,36 +176,37 @@ const instructionalTips = [
 // First person app plugs (use with first person hooks)
 const firstPersonAppPlugs = [
   {
-    title: "I used tools that made it easier",
+    title: "i used tools that made it easier",
     subtitle: "once I found out there were apps like Admitted that broke down my whole college strategy based on my own strength & weakness?? yeah. gamechanger 🩷"
   },
   {
-    title: "I ran my essay draft through Admitted at least once",
+    title: "i ran my essay draft through Admitted at least once",
     subtitle: "it gave me a completely graded review with delailed note"
   },
   {
-    title: "I reverse-engineered what each school values",
+    title: "i reverse-engineered what each school values",
     subtitle: "every college favored different traits. Apps like Admitted broke down what my top schools actually prioritized > research, leadership, essays, STEM rigor so I could tailor my app"
   },
   {
-    title: "I fixed weak points before I applied",
+    title: "i fixed weak points before I applied",
     subtitle: "most rejections came from silent red flags (weak essay tone, GPA dips & extracurricular imbalance). So I used apps like Admitted > it scanned my profile and told me exactly what was hurting me & how to fix it"
   },
   {
-    title: "I saved time",
-    subtitle: "I uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
+    title: "i saved time",
+    subtitle: "i uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
   },
   {
-    title: "I used data to predict my admit odds",
-    subtitle: "top students didn't \"hope\" they got in > they quantified their exact chances. Apps like Admitted simulated my acceptance odds by school and showed what was missing in my profile."
+    title: "i used data to predict my admit odds",
+    subtitle: "top students didn't \"hope\" they got in > they quantified their exact chances. Apps like Admitted simulated my acceptance odds by school and showed what was missing in my profile"
   },
+ 
   {
-    title: "I used this hidden app no one's talks about ✨",
+    title: "i used this hidden app no one's talks about ✨",
     subtitle: "there was this app called \"admitted\" that broke down my whole college strategy. It showed my admit odds, school fit & helped with my personal statement. It was like having an admissions officer in my pocket 🧠📚"
   },
   {
     title: "I stopped guessing my chances",
-    subtitle: "there was this app\"admitted\" that predicted my acceptance odds using my real stats & extracurriculars. It even told me what was lowering my chances and how to boost them before I applied."
+    subtitle: "there was this app\"admitted\" that predicted my acceptance odds using my real stats & extracurriculars. It even told me what was lowering my chances and how to boost them before I applied"
   },
   {
     title: "what helped me the most?",
@@ -221,7 +226,7 @@ const neutralAppPlugs = [
   },
   {
     title: "run your essay draft through Admitted at least once",
-    subtitle: "it gives a completely graded review with delailed note"
+    subtitle: "it gives a completely graded review + gives you access to +100 essays from other students who got into an ivy league"
   },
   {
     title: "reverse-engineer what each school values",
@@ -248,10 +253,6 @@ const neutralAppPlugs = [
     subtitle: "there's this app\"admitted\" that predicts your acceptance odds using your real stats & extracurriculars. It even tells you what's lowering your chances and how to boost them before you apply."
   },
   {
-    title: "what helped me the most?",
-    subtitle: "using apps like \"Admitted\" that literally break down my entire application and told me what to improve."
-  },
-  {
     title: "AI resources",
     subtitle: "there's tools like Admitted where u upload your entire app & get a breakdown of what ivy league committees value most in cases like yours so u know what to fix *before* you apply."
   }
@@ -265,6 +266,11 @@ export default function AdmittedPage() {
   const generateRandomGPA = () => {
     const gpa = (Math.random() * 0.7 + 3.0).toFixed(1)
     return gpa
+  }
+
+  // Generate random number between 7 and 14 for "X times"
+  const generateRandomTimes = () => {
+    return Math.floor(Math.random() * 8) + 7 // 7 to 14 inclusive
   }
 
   const generatePost = () => {
@@ -292,17 +298,23 @@ export default function AdmittedPage() {
     const shuffledTips = [...tipsPool].sort(() => Math.random() - 0.5)
     const selectedTips = shuffledTips.slice(0, 4)
     
+    // Replace "X times" with random values in selected tips
+    const processedTips = selectedTips.map(tip => ({
+      title: tip.title.replace(/\b\d+\s*times\b/gi, `${generateRandomTimes()} times`),
+      subtitle: tip.subtitle.replace(/\b\d+\s*times\b/gi, `${generateRandomTimes()} times`)
+    }))
+    
     // Select random app plug from the appropriate pool
     const appPlug = appPlugsPool[Math.floor(Math.random() * appPlugsPool.length)]
     
     // Create the 6-screen structure
     const newPost = [
       { screen: 1, type: "Hook", title: hook, subtitle: "" },
-      { screen: 2, type: "Tip 1", title: selectedTips[0].title, subtitle: selectedTips[0].subtitle },
-      { screen: 3, type: "Tip 2", title: selectedTips[1].title, subtitle: selectedTips[1].subtitle },
-      { screen: 4, type: "Tip 3", title: selectedTips[2].title, subtitle: selectedTips[2].subtitle },
+      { screen: 2, type: "Tip 1", title: processedTips[0].title, subtitle: processedTips[0].subtitle },
+      { screen: 3, type: "Tip 2", title: processedTips[1].title, subtitle: processedTips[1].subtitle },
+      { screen: 4, type: "Tip 3", title: processedTips[2].title, subtitle: processedTips[2].subtitle },
       { screen: 5, type: "App Plug", title: appPlug.title, subtitle: appPlug.subtitle },
-      { screen: 6, type: "Tip 4", title: selectedTips[3].title, subtitle: selectedTips[3].subtitle }
+      { screen: 6, type: "Tip 4", title: processedTips[3].title, subtitle: processedTips[3].subtitle }
     ]
     
     setPost(newPost)
