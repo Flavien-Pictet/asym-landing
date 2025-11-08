@@ -27,75 +27,75 @@ const neutralHooks = [
 // First person tips
 const firstPersonTips = [
   {
-    title: "I started my app strategy early",
-    subtitle: "everyone panics last minute. I didn't. I had deadlines, essays & recs mapped out by junior spring. Time buys clarity & confidence"
+    title: "i started my app strategy early",
+    subtitle: "everyone panics last minute. i didn't. i had deadlines, essays & recs mapped out by junior spring. Time buys clarity & confidence"
   },
   {
-    title: "I built a spike around biotech",
-    subtitle: "I wasn't a prodigy, I just committed. Cold-emailed 30+ professors until I landed a research project. That became the heart of my app"
+    title: "i built a spike around biotech",
+    subtitle: "i wasn't a prodigy i just committed. cold emailed 80+ professors until i landed a research project. that became the heart of my app"
   },
   {
-    title: "I scaled something real",
-    subtitle: "I ran a Zoom tutoring group that reached 300+ students. By senior year we had 20 volunteers. I framed it as leadership + adaptability."
+    title: "i scaled something real",
+    subtitle: "i ran a zoom tutoring group that reached 400+ students. by senior year we had 25 volunteers. i framed it as leadership + adaptability."
   },
   {
-    title: "I rewrote my personal statement 9 times",
-    subtitle: "my first draft was too \"safe\". The one that clicked was messy, honest & kind of vulnerable. Turns out…that's what they're actually looking for"
+    title: "i rewrote my personal statement 9 times",
+    subtitle: "my first draft was too \"safe\". the one that clicked was messy, honest & kind of vulnerable. Turns out…that's what they're actually looking for"
   },
   {
-    title: "I picked a strategic major",
-    subtitle: "admissions officers don't care if you \"like everything.\" They want a clear academic direction. I aligned my activities + essays around 1 narrative so my app felt intentional"
+    title: "i picked a strategic major",
+    subtitle: "admissions officers don't care if you \"like everything.\" they want a clear academic direction. I aligned my activities + essays around 1 narrative so my app felt intentional"
   },
   {
     title: "I quantified everything",
-    subtitle: "I didn't just say \"helped run a club.\" I added numbers: led 14-person team, raised $3,200, increased membership 5x. Numbers create credibility. Opinions don't"
+    subtitle: "i didn't just say \"helped run a club.\" i added numbers: led 14-person team, raised $3,200, increased membership 5x. Numbers create credibility. Opinions don't"
   },
   {
-    title: "I removed filler activities",
-    subtitle: "I cut anything that didn't support my spike. A long resume isn't impressive…cohesion is. Your weakest extracurricular can drag your entire profile down"
+    title: "i removed filler activities",
+    subtitle: "i cut anything that didn't support my spike. a long resume isn't impressive…cohesion is. your weakest extracurricular can drag your entire profile down"
   },
   {
-    title: "I made admissions officers feel my story",
+    title: "i made admissions officers feel my story",
     subtitle: "the best essays aren't about achievements! they're about emotional stakes. I stopped writing like a resume and started writing like a movie scene"
   },
   {
-    title: "I learned what actually matters",
+    title: "i learned what actually matters",
     subtitle: "the common data set shows exactly how each school weights test scores vs essays vs rec letters. Nobody checks it… but it literally tells you the formula"
   },
   {
-    title: "I didn't hide my weaknesses",
+    title: "i didn't hide my weaknesses",
     subtitle: "instead of trying to look \"perfect\" I explained why certain dips happened & what I did about it. AOs don't expect perfection. They expect growth"
   },
   {
-    title: "I showed upward trajectory",
+    title: "i showed upward trajectory",
     subtitle: "admissions isn't about where you started…it's where you're trending. I made sure my last two years showed momentum, not stagnation"
   },
   {
-    title: "I stopped using cliche openers",
+    title: "i stopped using cliche openers",
     subtitle: "If your essay starts with \"ever since I was young…\" you're cooked. I started with a moment of tension or conflict instead! it hooks the reader immediately"
   },
   {
-    title: "I turned my spike into a movement",
+    title: "i turned my spike into a movement",
     subtitle: "Instead of doing things for myself, I started creating impact beyond myself teaching others, launching initiatives. That's when AOs label you as a \"leader\" not just a high achiever"
   },
   {
-    title: "I treated my app like a startup pitch",
+    title: "i treated my app like a startup pitch",
     subtitle: "my application wasn't a list of accomplishments > it was a narrative about a problem I cared about and a mission I was already executing on. That's what signals future impact"
   },
   {
-    title: "I built relationships with admissions indirectly",
+    title: "i built relationships with admissions indirectly",
     subtitle: "college fly-ins, virtual info sessions, school-specific essays > every touchpoint is tracked. Demonstrated interest is real. Invisible applicants get ignored"
   },
   {
-    title: "I engineered recommendation letters",
+    title: "i engineered recommendation letters",
     subtitle: "i didn't just ask for recs, I gave my teachers a brag sheet with my narrative, key moments & impact metrics. Good recs are written for you. Great recs are written with you"
   },
   {
-    title: "I targeted institutional needs",
+    title: "i targeted institutional needs",
     subtitle: "admissions isn't a meritocracy, it's strategic. Schools admit based on what they need: first-gen, certain majors, geographic diversity, niche academic interests. I aligned myself with their goals not mine"
   },
   {
-    title: "I wrote like a human, not a brochure",
+    title: "i wrote like a human, not a brochure",
     subtitle: "polished, try-hard essays blend in. Real stories with imperfect edges stand out. If it sounds like ChatGPT or a press release it's an automatic pass"
   }
 ]
