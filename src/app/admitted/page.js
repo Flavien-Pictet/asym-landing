@@ -234,6 +234,10 @@ const neutralAppPlugs = [
     subtitle: "once I found out there were apps like Admitted that breaks down your whole college strategy based on your own strength & weakness?? yeah. gamechanger 🩷"
   },
   {
+    title: "find leaked essays from ivy undergrads",
+    subtitle: "there are apps like \"Admitted\" where u can spy essays from actual students who got into top colleges. Its a good way to get inspo & detect patterns that worked"
+  },
+  {
     title: "run your essay draft through Admitted at least once",
     subtitle: "it gives a completely graded review + gives you access to +100 essays from other students who got into an ivy league"
   },
