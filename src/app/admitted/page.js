@@ -95,7 +95,7 @@ const firstPersonTips = [
     subtitle: "admissions isn't a meritocracy, it's strategic. Schools admit based on what they need: first-gen, certain majors, geographic diversity, niche academic interests. I aligned myself with their goals not mine"
   },
   {
-    title: "i wrote like a human, not a brochure",
+    title: "i wrote like a human",
     subtitle: "polished, try-hard essays blend in. Real stories with imperfect edges stand out. If it sounds like ChatGPT or a press release it's an automatic pass"
   }
 ]
