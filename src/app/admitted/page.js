@@ -6,21 +6,22 @@ import { motion } from 'framer-motion'
 // First person hooks (use with "I" tips)
 const firstPersonHooks = [
   "5 things I did to get into harvard 👉",
-  "I got into an Ivy League with 3.5 GPA. Here's how 👉",
-  "college apps tips that carried my admission into harvard 👉",
+  "5 things I did to get into stanford 👉",
+  "i got into an Ivy League with 3.5 GPA. Here's how 👉",
   "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa"
 ]
 
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
   "secrets abt college apps I only learned AFTER submitting 👉",
+  "college apps tips that carried my admission into harvard 👉",
   "what i wish i'd known before applying to college (as a high school senior)",
   "my mom is on harvard admissions board… here's the actual sauce to get accepted anywhere",
   "my dad is on harvard admissions board… here's what he told me before submitting my app",
   "things i wish someone told me before applying to college 👉",
   "5 things to do before submitting your college apps 👉",
   "college app tips that will get you accepted 👉",
-  "Secrets all international students use to get into Ivy Leagues",
+  "secrets all international students use to get into Ivy Leagues",
   "how to get into an Ivy League if you're DUMB 👉"
 ]
 
@@ -260,13 +261,29 @@ export default function AdmittedPage() {
   const [post, setPost] = useState(null)
   const [copiedIndex, setCopiedIndex] = useState(null)
 
+  // Generate random GPA between 3.0 and 3.7
+  const generateRandomGPA = () => {
+    const gpa = (Math.random() * 0.7 + 3.0).toFixed(1)
+    return gpa
+  }
+
   const generatePost = () => {
     // Randomly choose between first person or instructional style
     const useFirstPerson = Math.random() > 0.5
     
-    const hook = useFirstPerson 
+    let hook = useFirstPerson 
       ? firstPersonHooks[Math.floor(Math.random() * firstPersonHooks.length)]
       : neutralHooks[Math.floor(Math.random() * neutralHooks.length)]
+    
+    // Replace any GPA values with randomly generated ones
+    hook = hook.replace(/\b\d\.\d\s*gpa\b/gi, (match) => {
+      const hasSpace = match.includes(' ')
+      return hasSpace ? `${generateRandomGPA()} gpa` : `${generateRandomGPA()}gpa`
+    })
+    hook = hook.replace(/\b\d\.\d\s*GPA\b/g, (match) => {
+      const hasSpace = match.includes(' ')
+      return hasSpace ? `${generateRandomGPA()} GPA` : `${generateRandomGPA()}GPA`
+    })
     
     const tipsPool = useFirstPerson ? firstPersonTips : instructionalTips
     const appPlugsPool = useFirstPerson ? firstPersonAppPlugs : neutralAppPlugs
