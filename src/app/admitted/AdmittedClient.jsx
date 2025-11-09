@@ -444,57 +444,40 @@ export default function AdmittedClient({ imageSets }) {
               >
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 pb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="bg-[rgba(0,136,255,0.91)] backdrop-blur-[10px] text-white font-bold px-4 py-2 rounded-full text-sm">
-                      Screen {screen.screen}
-                    </span>
-                    <span className="text-gray-500 font-medium text-sm">
-                      {screen.type}
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        const tipNumber = screen.screen > 1 ? `${screen.screen - 1}. ` : ''
-                        const titleWithNumber = `${tipNumber}${screen.title}`
-                        const fullText = screen.subtitle 
-                          ? `${titleWithNumber}\n\n${screen.subtitle}`
-                          : titleWithNumber
-                        copyToClipboard(fullText, index)
-                      }}
-                      className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                        copiedIndex === index
-                          ? 'bg-green-500 text-white'
-                          : 'bg-black bg-opacity-90 text-white hover:bg-opacity-100'
-                      }`}
-                    >
-                      {copiedIndex === index ? '✓ Copied!' : '📋 Copy Text'}
-                    </button>
-                  </div>
+                  <span className="bg-[rgba(0,136,255,0.91)] backdrop-blur-[10px] text-white font-bold px-4 py-2 rounded-full text-sm">
+                    Screen {screen.screen}
+                  </span>
+                  <button
+                    onClick={() => {
+                      const tipNumber = screen.screen > 1 ? `${screen.screen - 1}. ` : ''
+                      const titleWithNumber = `${tipNumber}${screen.title}`
+                      const fullText = screen.subtitle 
+                        ? `${titleWithNumber}\n\n${screen.subtitle}`
+                        : titleWithNumber
+                      copyToClipboard(fullText, index)
+                    }}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                      copiedIndex === index
+                        ? 'bg-green-500 text-white'
+                        : 'bg-black bg-opacity-90 text-white hover:bg-opacity-100'
+                    }`}
+                  >
+                    {copiedIndex === index ? '✓ Copied!' : '📋 Copy Text'}
+                  </button>
                 </div>
 
                 {/* Content Grid */}
                 <div className="grid md:grid-cols-2 gap-6 p-6 pt-2">
                   {/* Text Content */}
-                  <div className="space-y-3 flex flex-col justify-center">
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1 font-semibold">
-                        Title
-                      </p>
-                      <p className="text-xl font-bold text-gray-900 leading-tight">
-                        {screen.screen > 1 && `${screen.screen - 1}. `}{screen.title}
-                      </p>
-                    </div>
+                  <div className="space-y-4 flex flex-col justify-center">
+                    <p className="text-xl font-bold text-gray-900 leading-tight">
+                      {screen.screen > 1 && `${screen.screen - 1}. `}{screen.title}
+                    </p>
                     
                     {screen.subtitle && (
-                      <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide mb-1 font-semibold">
-                          Subtitle
-                        </p>
-                        <p className="text-base text-gray-700 leading-relaxed">
-                          {screen.subtitle}
-                        </p>
-                      </div>
+                      <p className="text-base text-gray-700 leading-relaxed">
+                        {screen.subtitle}
+                      </p>
                     )}
                   </div>
 
