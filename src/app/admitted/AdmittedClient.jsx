@@ -405,7 +405,7 @@ export default function AdmittedClient({ imageSets }) {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            TikTok Post Generator
+             Tiktok Generator
           </h1>
           <p className="text-gray-600 text-lg">
             Generate complete 6-screen text overlays with images for Admitted.
