@@ -378,15 +378,38 @@ export default function AdmittedClient({ imageSets }) {
     setTimeout(() => setCopiedIndex(null), 2000)
   }
 
-  const downloadImage = (imageUrl, screenNumber) => {
-    const link = document.createElement('a')
-    link.href = imageUrl
-    link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
-    link.target = '_blank'
-    link.rel = 'noopener noreferrer'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+  const downloadImage = async (imageUrl, screenNumber) => {
+    try {
+      // Pour iOS: utiliser l'API Share native ou fetch avec blob
+      const response = await fetch(imageUrl)
+      const blob = await response.blob()
+      
+      // Vérifier si l'API Web Share est disponible (iOS Safari)
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'test.jpg')] })) {
+        const fileName = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
+        const file = new File([blob], fileName, { type: blob.type })
+        
+        await navigator.share({
+          files: [file],
+          title: `Screen ${screenNumber}`,
+          text: 'Download this image'
+        })
+      } else {
+        // Fallback pour desktop ou anciens navigateurs
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+      }
+    } catch (error) {
+      console.error('Error downloading image:', error)
+      // Dernier fallback: ouvrir dans un nouvel onglet
+      window.open(imageUrl, '_blank')
+    }
   }
 
   return (
