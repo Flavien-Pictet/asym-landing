@@ -484,7 +484,7 @@ export default function AdmittedClient({ imageSets }) {
                   {/* Image Content */}
                   {screen.image && (
                     <div className="space-y-3">
-                      <div className="relative aspect-[9/16] rounded-xl overflow-hidden bg-gray-100 shadow-md">
+                      <div className="relative h-80 rounded-xl overflow-hidden bg-gray-100 shadow-md">
                         <Image
                           src={screen.image}
                           alt={`Screen ${screen.screen} background`}
