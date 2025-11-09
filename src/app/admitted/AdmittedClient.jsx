@@ -378,21 +378,15 @@ export default function AdmittedClient({ imageSets }) {
     setTimeout(() => setCopiedIndex(null), 2000)
   }
 
-  const downloadImage = async (imageUrl, screenNumber) => {
-    try {
-      const response = await fetch(imageUrl)
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop()}`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      window.URL.revokeObjectURL(url)
-    } catch (error) {
-      console.error('Error downloading image:', error)
-    }
+  const downloadImage = (imageUrl, screenNumber) => {
+    const link = document.createElement('a')
+    link.href = imageUrl
+    link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
