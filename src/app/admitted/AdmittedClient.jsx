@@ -140,11 +140,11 @@ const instructionalTips = [
     subtitle: "admissions officers shouldn't have to guess your academic focus. your activities, essays & awards all need to point in one direction"
   },
   {
-    title: "Abbreviations",
+    title: "abbreviations",
     subtitle: "Use abbreviations like “w/ for with” to save character count"
   },
   {
-    title: "Action oriented verbs",
+    title: "action oriented verbs",
     subtitle: "Use action-oriented verbs (they love “built”, “designed”, “initiated”, “launched”, “founded”, “united”)"
   },
   {
