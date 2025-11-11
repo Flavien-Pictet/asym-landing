@@ -8,7 +8,9 @@ import Image from 'next/image'
 const firstPersonHooks = [
   { text: "5 things I did to get into harvard 👉", imageTag: "general" },
   { text: "how i got into an ivy with a low SAT", imageTag: "general" },
+  { text: "\"Realistic\" things i did to get into Harvard, Stanford & other Ivies", imageTag: "general" },
   { text: "5 things I did to get into stanford 👉", imageTag: "general" },
+  { text: "slightly “psychotic” things i did in high school that got me into HARVARD", imageTag: "general" },
   { text: "i applied to 24 colleges & was accept to 19 (including Duke & NYU) here's how 👉", imageTag: "general" },
   { text: "i got into an Ivy League with 3.5 GPA. Here's how 👉", imageTag: "general" },
   { text: "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa", imageTag: "general" }
@@ -19,7 +21,7 @@ const neutralHooks = [
   { text: "ONLY things u need to know to get into THE IVIES", imageTag: "general" },
   { text: "exposing college admissions secrets", imageTag: "general" },
   { text: "5 non-basic tips to help you get into an Ivy league", imageTag: "general" },
-  { text: "secrets abt college apps I only learned AFTER submitting 👉", imageTag: "general" },
+  { text: "secrets abt college apps i only learned AFTER submitting 👉", imageTag: "general" },
   { text: "college apps tips that carried my admission into harvard 👉", imageTag: "general" },
   { text: "what i wish i'd known before applying to college (as a high school senior)", imageTag: "general" },
   { text: "my mom is on harvard admissions board… here's the actual sauce to get accepted anywhere", imageTag: "mom" },
@@ -36,6 +38,26 @@ const firstPersonTips = [
   {
     title: "i started my app strategy early",
     subtitle: "everyone panics last minute. i didn't. i had deadlines, essays & recs mapped out by junior spring. Time buys clarity & confidence"
+  },
+  {
+    title: "saw a problem and came up with a solution that utilized what I was good at",
+    subtitle: "lost my grandfather and elementary school teacher to cancer and created a nonprofit to honor them / help my grief bc I love service & am good at marketing, leading & building teams"
+  },
+  {
+    title:"i convinced organizations to take me seriously",
+    subtitle:"cold-emailed nonprofits to argue why they needed a young person on their board / how I could change their company for the better"
+  },
+  {
+    title: "cold-emailed (and borderline spammed) companies/nonprofits until they listened to me",
+    subtitle: "that’s how Cancer First, my nonprofit, grew so big & how I landed opportunities to conduct econ research, serve on company boards as the only youth and more!"
+  },
+  {
+    title: "got to know my teachers, counselors, and principal outside of the classroom",
+    subtitle: "got to class 10 min early to ask them about THEIR lives & shared what I was working on / going through"
+  },
+  {
+    title:"i chased every award",
+    subtitle:"Created lists of awards i could apply to for every “talent” i had"
   },
   {
     title: "i built a spike around biotech",
@@ -116,6 +138,14 @@ const instructionalTips = [
   {
     title: "make your major obvious",
     subtitle: "admissions officers shouldn't have to guess your academic focus. your activities, essays & awards all need to point in one direction"
+  },
+  {
+    title: "Abbreviations",
+    subtitle: "Use abbreviations like “w/ for with” to save character count"
+  },
+  {
+    title: "Action oriented verbs",
+    subtitle: "Use action-oriented verbs (they love “built”, “designed”, “initiated”, “launched”, “founded”, “united”)"
   },
   {
     title: "take the MBTI test",
@@ -235,12 +265,20 @@ const neutralAppPlugs = [
     subtitle: "once I found out there were apps like Admitted that breaks down your whole college strategy based on your own strength & weakness?? yeah. gamechanger 🩷"
   },
   {
+    title: "use ai or you’re falling behind",
+    subtitle: "most rejections come from silent red flags (weak essay tone, GPA dips & extracurricular imbalance). So start using apps like Admitted > it scans your profile and tells you exactly what's hurting you & how to fix it"
+  },
+  {
     title: "find leaked essays from ivy undergrads",
     subtitle: "there are apps like \"Admitted\" where u can spy essays from actual students who got into top colleges. Its a good way to get inspo & detect patterns that worked"
   },
   {
     title: "run your essay draft through Admitted at least once",
     subtitle: "it gives a completely graded review + gives you access to +100 essays from other students who got into an ivy league"
+  },
+  {
+    title: "run your essay through Admitted to see if you hit any red flags",
+    subtitle: "I’ve never seen anyone score over an 80... a 73 on Admitted got me into UPenn & Harvard!"
   },
   {
     title: "reverse-engineer what each school values",
@@ -255,16 +293,20 @@ const neutralAppPlugs = [
     subtitle: "I uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
   },
   {
-    title: "use data to predict your admit odds",
-    subtitle: "top students don't \"hope\" they get in > they quantify their exact chances. Apps like Admitted simulate your acceptance odds by school and show what's missing in your profile"
+    title: "work smarter, not harder",
+    subtitle: "if you can’t afford a private counselor or don’t have an admissions officer insider, apps like \"Admitted\" are a great tools to score and optimize your activity list"
+  },
+  {
+    title: "work smarter, not harder",
+    subtitle: "use apps like \"Admitted\" to analyze your entire common application & tell you exactly what to fix before submitting it"
   },
   {
     title: "use this hidden app no one's talks about ✨",
-    subtitle: "there's this app called admitted that breaks down your whole college strategy. It shows your admit odds, school fit & helps with your personal statement. It's like having an admissions officer in your pocket 🧠📚"
+    subtitle: "there's this app called Admitted that breaks down your whole college strategy. It shows your admit odds, school fit & helps with your personal statement. It's like having an admissions officer in your pocket 🧠📚"
   },
   {
     title: "stop guessing your chances",
-    subtitle: "there's this app admitted that predicts your acceptance odds using your real stats & extracurriculars. It even tells you what's lowering your chances and how to boost them before you apply."
+    subtitle: "there's this app Admitted that predicts your acceptance odds using your real stats & extracurriculars. It even tells you what's lowering your chances and how to boost them before you apply."
   },
   {
     title: "AI resources",
