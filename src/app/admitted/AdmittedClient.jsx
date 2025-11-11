@@ -6,29 +6,29 @@ import Image from 'next/image'
 
 // First person hooks (use with "I" tips)
 const firstPersonHooks = [
-  "5 things I did to get into harvard 👉",
-  "how i got into an ivy with a low SAT",
-  "5 things I did to get into stanford 👉",
-  "i applied to 24 colleges & was accept to 19 (including Duke & NYU) here's how 👉",
-  "i got into an Ivy League with 3.5 GPA. Here's how 👉",
-  "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa"
+  { text: "5 things I did to get into harvard 👉", imageTag: "general" },
+  { text: "how i got into an ivy with a low SAT", imageTag: "general" },
+  { text: "5 things I did to get into stanford 👉", imageTag: "general" },
+  { text: "i applied to 24 colleges & was accept to 19 (including Duke & NYU) here's how 👉", imageTag: "general" },
+  { text: "i got into an Ivy League with 3.5 GPA. Here's how 👉", imageTag: "general" },
+  { text: "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa", imageTag: "general" }
 ]
 
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
-  "ONLY things u need to know to get into THE IVIES",
-  "exposing college admissions secrets",
-  "5 non-basic tips to help you get into an Ivy league",
-  "secrets abt college apps I only learned AFTER submitting 👉",
-  "college apps tips that carried my admission into harvard 👉",
-  "what i wish i'd known before applying to college (as a high school senior)",
-  "my mom is on harvard admissions board… here's the actual sauce to get accepted anywhere",
-  "my dad is on harvard admissions board… here's what he told me before submitting my app",
-  "things i wish someone told me before applying to college 👉",
-  "5 things to do before submitting your college apps 👉",
-  "college app tips that will get you accepted 👉",
-  "secrets all international students use to get into Ivy Leagues",
-  "how to get into an Ivy League if you're DUMB 👉"
+  { text: "ONLY things u need to know to get into THE IVIES", imageTag: "general" },
+  { text: "exposing college admissions secrets", imageTag: "general" },
+  { text: "5 non-basic tips to help you get into an Ivy league", imageTag: "general" },
+  { text: "secrets abt college apps I only learned AFTER submitting 👉", imageTag: "general" },
+  { text: "college apps tips that carried my admission into harvard 👉", imageTag: "general" },
+  { text: "what i wish i'd known before applying to college (as a high school senior)", imageTag: "general" },
+  { text: "my mom is on harvard admissions board… here's the actual sauce to get accepted anywhere", imageTag: "mom" },
+  { text: "my dad is on harvard admissions board… here's what he told me before submitting my app", imageTag: "dad" },
+  { text: "things i wish someone told me before applying to college 👉", imageTag: "general" },
+  { text: "5 things to do before submitting your college apps 👉", imageTag: "general" },
+  { text: "college app tips that will get you accepted 👉", imageTag: "general" },
+  { text: "secrets all international students use to get into Ivy Leagues", imageTag: "general" },
+  { text: "how to get into an Ivy League if you're DUMB 👉", imageTag: "general" }
 ]
 
 // First person tips
@@ -293,6 +293,27 @@ export default function AdmittedClient({ imageSets }) {
     return imageArray[Math.floor(Math.random() * imageArray.length)]
   }
 
+  // Select hook image based on tag
+  const selectHookImage = (imageTag) => {
+    if (!imageSets?.hooks) return null
+    
+    // Try to get images for the specific tag
+    const taggedImages = imageSets.hooks[imageTag]
+    if (taggedImages && taggedImages.length > 0) {
+      return selectRandomImage(taggedImages)
+    }
+    
+    // Fallback to general images
+    const generalImages = imageSets.hooks['general']
+    if (generalImages && generalImages.length > 0) {
+      return selectRandomImage(generalImages)
+    }
+    
+    // Ultimate fallback: any hook image
+    const allHookImages = Object.values(imageSets.hooks).flat()
+    return selectRandomImage(allHookImages)
+  }
+
   // Select CTA image with weighted probability
   const selectCTAImage = () => {
     if (!imageSets?.cta || imageSets.cta.length === 0) return null
@@ -318,16 +339,19 @@ export default function AdmittedClient({ imageSets }) {
     // Randomly choose between first person or instructional style
     const useFirstPerson = Math.random() > 0.5
     
-    let hook = useFirstPerson 
+    const hookObj = useFirstPerson 
       ? firstPersonHooks[Math.floor(Math.random() * firstPersonHooks.length)]
       : neutralHooks[Math.floor(Math.random() * neutralHooks.length)]
     
+    let hookText = hookObj.text
+    const hookImageTag = hookObj.imageTag
+    
     // Replace any GPA values with randomly generated ones
-    hook = hook.replace(/\b\d\.\d\s*gpa\b/gi, (match) => {
+    hookText = hookText.replace(/\b\d\.\d\s*gpa\b/gi, (match) => {
       const hasSpace = match.includes(' ')
       return hasSpace ? `${generateRandomGPA()} gpa` : `${generateRandomGPA()}gpa`
     })
-    hook = hook.replace(/\b\d\.\d\s*GPA\b/g, (match) => {
+    hookText = hookText.replace(/\b\d\.\d\s*GPA\b/g, (match) => {
       const hasSpace = match.includes(' ')
       return hasSpace ? `${generateRandomGPA()} GPA` : `${generateRandomGPA()}GPA`
     })
@@ -349,7 +373,7 @@ export default function AdmittedClient({ imageSets }) {
     const appPlug = appPlugsPool[Math.floor(Math.random() * appPlugsPool.length)]
     
     // Select images for each screen
-    const hookImage = selectRandomImage(imageSets?.hooks)
+    const hookImage = selectHookImage(hookImageTag)
     const tipImages = [
       selectRandomImage(imageSets?.tips),
       selectRandomImage(imageSets?.tips),
@@ -360,7 +384,7 @@ export default function AdmittedClient({ imageSets }) {
     
     // Create the 6-screen structure with images
     const newPost = [
-      { screen: 1, type: "Hook", title: hook, subtitle: "", image: hookImage },
+      { screen: 1, type: "Hook", title: hookText, subtitle: "", image: hookImage },
       { screen: 2, type: "Tip 1", title: processedTips[0].title, subtitle: processedTips[0].subtitle, image: tipImages[0] },
       { screen: 3, type: "Tip 2", title: processedTips[1].title, subtitle: processedTips[1].subtitle, image: tipImages[1] },
       { screen: 4, type: "Tip 3", title: processedTips[2].title, subtitle: processedTips[2].subtitle, image: tipImages[2] },

@@ -22,10 +22,48 @@ export function getImagesFromDirectory(directoryPath) {
   }
 }
 
+// Get images organized by subdirectory (for hooks with tags)
+export function getImagesBySubdirectory(baseDirectoryPath) {
+  try {
+    const fullPath = path.join(process.cwd(), 'public', baseDirectoryPath)
+    const result = {}
+    
+    // Check if the directory exists
+    if (!fs.existsSync(fullPath)) {
+      return result
+    }
+    
+    const items = fs.readdirSync(fullPath, { withFileTypes: true })
+    
+    // Process subdirectories
+    items.forEach(item => {
+      if (item.isDirectory()) {
+        const subdirPath = `${baseDirectoryPath}/${item.name}`
+        result[item.name] = getImagesFromDirectory(subdirPath)
+      }
+    })
+    
+    // Also get images directly in the base directory (fallback to "general")
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp']
+    const directImages = items
+      .filter(item => item.isFile() && imageExtensions.includes(path.extname(item.name).toLowerCase()))
+      .map(item => `/${baseDirectoryPath}/${item.name}`)
+    
+    if (directImages.length > 0) {
+      result['general'] = [...(result['general'] || []), ...directImages]
+    }
+    
+    return result
+  } catch (error) {
+    console.error(`Error reading subdirectories in ${baseDirectoryPath}:`, error)
+    return {}
+  }
+}
+
 // Get all image sets needed for the app
 export function getAllImageSets() {
   return {
-    hooks: getImagesFromDirectory('assets/images/admitted-hooks'),
+    hooks: getImagesBySubdirectory('assets/images/admitted-hooks'),
     tips: getImagesFromDirectory('assets/images/admitted-tips'),
     cta: getImagesFromDirectory('assets/images/admitted-cta')
   }
