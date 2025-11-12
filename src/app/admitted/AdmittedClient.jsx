@@ -7,7 +7,13 @@ import Image from 'next/image'
 // Captions pool
 const captions = [
   "Let me know if you have any questions!! 🎓🫶📚🎓 #college #collegeadmission #harvard #essay #ivyleague",
-  "Been gatekeeping these college hacks for too long 🫣🎓 #college #collegeadmission #harvard #essay #ivyleague"
+  "Been gatekeeping these college hacks for too long 🫣🎓 #college #collegeadmission #harvard #essay #ivyleague",
+  "here are my ultimate uc app tips i wish i'd known. try these so you can be successful on yours. good luck! #ucla #collegeadmissions #collegetips",
+  "heres the breakdown of what i did! hopefully you guys can use it to your advantage 😘 #college #student #advice #application #tips",
+  "controversial tips for college success from a finance major at nyu #fyp #turboai #StudyTips #nyutikok #unilife",
+  "lmk if you have any questions in the comments & feel free to send a message 💙 #commonapp #university #college #student #collegeapps",
+  "if you're stressing abt apps rn, ask away 💌 #collegeapps #collegeapplications #collegeessay #commonapp",
+  "Practice, hard work and dedication is the key #stanford #stanforduniversity #student #studentlife #college"
 ]
 
 // First person hooks (use with "I" tips)
@@ -501,7 +507,7 @@ export default function AdmittedClient({ imageSets }) {
              Tiktok Generator
           </h1>
           <p className="text-gray-600 text-lg">
-            Generate TikTok caption + 6 screens with text overlays & images.
+            Generate TikTok caption + 6 screens<br /> with text overlays & images.
           </p>
         </motion.div>
 
@@ -573,14 +579,22 @@ export default function AdmittedClient({ imageSets }) {
                 <div className={`${item.image ? 'grid md:grid-cols-2' : ''} gap-6 p-6 pt-2`}>
                   {/* Text Content */}
                   <div className="space-y-4 flex flex-col justify-center">
-                    <p className="text-xl font-bold text-gray-900 leading-tight">
-                      {!item.isCaption && item.screen > 1 && `${item.screen - 1}. `}{item.title}
-                    </p>
-                    
-                    {item.subtitle && (
-                      <p className="text-base text-gray-700 leading-relaxed">
-                        {item.subtitle}
+                    {item.isCaption ? (
+                      <p className="text-xl font-bold text-gray-900 leading-tight whitespace-pre-line">
+                        {item.title.replace(/(.*?)(#.*)/, '$1\n\n$2')}
                       </p>
+                    ) : (
+                      <>
+                        <p className="text-xl font-bold text-gray-900 leading-tight">
+                          {item.screen > 1 && `${item.screen - 1}. `}{item.title}
+                        </p>
+                        
+                        {item.subtitle && (
+                          <p className="text-base text-gray-700 leading-relaxed">
+                            {item.subtitle}
+                          </p>
+                        )}
+                      </>
                     )}
                   </div>
 
@@ -624,7 +638,7 @@ export default function AdmittedClient({ imageSets }) {
           >
             <div className="text-6xl mb-4">🎬</div>
             <p className="text-gray-500 text-lg">
-              Click the button above to generate your first post
+              Click the button above <br /> to generate your first post
             </p>
           </motion.div>
         )}
