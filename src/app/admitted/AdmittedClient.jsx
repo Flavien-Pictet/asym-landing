@@ -261,7 +261,7 @@ const firstPersonAppPlugs = [
   },
   {
     title: "i reverse-engineered what each school values",
-    subtitle: "every college favored different traits. apps like \"Admitted\" broke down what my top schools actually prioritized > research, leadership, essays, STEM rigor so I could tailor my app"
+    subtitle: "every college favored different traits. apps like Admitted broke down what my top schools actually prioritized > research, leadership, essays, STEM rigor so I could tailor my app"
   },
   {
     title: "i fixed weak points before I applied",
@@ -269,7 +269,7 @@ const firstPersonAppPlugs = [
   },
   {
     title: "i saved time",
-    subtitle: "i uploaded my whole application into an app called \"Admitted\". It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
+    subtitle: "i uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
   },
   {
     title: "i used data to predict my admit odds",
