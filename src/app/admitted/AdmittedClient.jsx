@@ -4,6 +4,31 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+// Universities pool for dynamic replacement
+const universities = [
+  "Stanford",
+  "Harvard",
+  "NYU",
+  "Princeton",
+  "MIT",
+  "Yale",
+  "Duke",
+  "Cornell",
+  "Brown",
+  "Columbia",
+  "Berkeley"
+]
+
+// Elite universities pool for parent hooks
+const eliteUniversities = [
+  "Stanford",
+  "Harvard",
+  "Princeton",
+  "Yale",
+  "MIT",
+  "NYU"
+]
+
 // Captions pool
 const captions = [
   "Let me know if you have any questions!! 🎓🫶📚🎓 #college #collegeadmission #harvard #essay #ivyleague",
@@ -18,12 +43,11 @@ const captions = [
 
 // First person hooks (use with "I" tips)
 const firstPersonHooks = [
-  { text: "5 things I did to get into harvard 👉", imageTag: "general" },
   { text: "how i got into an ivy with a low SAT", imageTag: "general" },
   { text: "\"Realistic\" things i did to get into Harvard, Stanford & other Ivies", imageTag: "general" },
-  { text: "5 things I did to get into stanford 👉", imageTag: "general" },
-  { text: "slightly “psychotic” things i did in high school that got me into HARVARD", imageTag: "general" },
-  { text: "i applied to 24 colleges & was accept to 19 (including Duke & NYU) here's how 👉", imageTag: "general" },
+  { text: "5 things I did to get into {university} 👉", imageTag: "general" },
+  { text: 'slightly "psychotic" things i did in high school that got me into {UNIVERSITY}', imageTag: "general" },
+  { text: "i applied to {totalColleges} colleges & was accept to {acceptedColleges} (including Duke & NYU) here's how 👉", imageTag: "general" },
   { text: "i got into an Ivy League with 3.5 GPA. Here's how 👉", imageTag: "general" },
   { text: "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa", imageTag: "general" }
 ]
@@ -36,8 +60,8 @@ const neutralHooks = [
   { text: "secrets abt college apps i only learned AFTER submitting 👉", imageTag: "general" },
   { text: "college apps tips that carried my admission into harvard 👉", imageTag: "general" },
   { text: "what i wish i'd known before applying to college (as a high school senior)", imageTag: "general" },
-  { text: "my mom is on harvard admissions board… here's the actual sauce to get accepted anywhere", imageTag: "mom" },
-  { text: "my dad is on harvard admissions board… here's what he told me before submitting my app", imageTag: "dad" },
+  { text: "my mom is on {eliteUniversity} admissions board… here's the actual sauce to get accepted anywhere", imageTag: "mom" },
+  { text: "my dad is on {eliteUniversity} admissions board… here's what he told me before submitting my app", imageTag: "dad" },
   { text: "things i wish someone told me before applying to college 👉", imageTag: "general" },
   { text: "5 things to do before submitting your college apps 👉", imageTag: "general" },
   { text: "college app tips that will get you accepted 👉", imageTag: "general" },
@@ -393,6 +417,14 @@ export default function AdmittedClient({ imageSets }) {
     // Select random caption
     const selectedCaption = captions[Math.floor(Math.random() * captions.length)]
     
+    // Select random universities
+    const selectedUniversity = universities[Math.floor(Math.random() * universities.length)]
+    const selectedEliteUniversity = eliteUniversities[Math.floor(Math.random() * eliteUniversities.length)]
+    
+    // Generate random college numbers
+    const totalColleges = Math.floor(Math.random() * 6) + 23 // 23 to 28
+    const acceptedColleges = Math.floor(Math.random() * 5) + 16 // 16 to 20
+    
     // Randomly choose between first person or instructional style
     const useFirstPerson = Math.random() > 0.5
     
@@ -402,6 +434,15 @@ export default function AdmittedClient({ imageSets }) {
     
     let hookText = hookObj.text
     const hookImageTag = hookObj.imageTag
+    
+    // Replace university placeholders with random universities
+    hookText = hookText.replace(/\{university\}/g, selectedUniversity)
+    hookText = hookText.replace(/\{UNIVERSITY\}/g, selectedUniversity.toUpperCase())
+    hookText = hookText.replace(/\{eliteUniversity\}/g, selectedEliteUniversity)
+    
+    // Replace college count placeholders
+    hookText = hookText.replace(/\{totalColleges\}/g, totalColleges)
+    hookText = hookText.replace(/\{acceptedColleges\}/g, acceptedColleges)
     
     // Replace any GPA values with randomly generated ones
     hookText = hookText.replace(/\b\d\.\d\s*gpa\b/gi, (match) => {
