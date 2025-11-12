@@ -4,6 +4,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+// Captions pool
+const captions = [
+  "Let me know if you have any questions!! 🎓🫶📚🎓 #college #collegeadmission #harvard #essay #ivyleague",
+  "Been gatekeeping these college hacks for too long 🫣🎓 #college #collegeadmission #harvard #essay #ivyleague"
+]
+
 // First person hooks (use with "I" tips)
 const firstPersonHooks = [
   { text: "5 things I did to get into harvard 👉", imageTag: "general" },
@@ -378,6 +384,9 @@ export default function AdmittedClient({ imageSets }) {
   }
 
   const generatePost = () => {
+    // Select random caption
+    const selectedCaption = captions[Math.floor(Math.random() * captions.length)]
+    
     // Randomly choose between first person or instructional style
     const useFirstPerson = Math.random() > 0.5
     
@@ -424,8 +433,9 @@ export default function AdmittedClient({ imageSets }) {
     ]
     const ctaImage = selectCTAImage()
     
-    // Create the 6-screen structure with images
+    // Create the post with caption card + 6 screens
     const newPost = [
+      { type: "Caption", title: selectedCaption, subtitle: "", image: null, isCaption: true },
       { screen: 1, type: "Hook", title: hookText, subtitle: "", image: hookImage },
       { screen: 2, type: "Tip 1", title: processedTips[0].title, subtitle: processedTips[0].subtitle, image: tipImages[0] },
       { screen: 3, type: "Tip 2", title: processedTips[1].title, subtitle: processedTips[1].subtitle, image: tipImages[1] },
@@ -491,7 +501,7 @@ export default function AdmittedClient({ imageSets }) {
              Tiktok Generator
           </h1>
           <p className="text-gray-600 text-lg">
-            Generate complete 6-screen text overlays with images for Admitted.
+            Generate TikTok caption + 6 screens with text overlays & images.
           </p>
         </motion.div>
 
@@ -517,7 +527,7 @@ export default function AdmittedClient({ imageSets }) {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            {post.map((screen, index) => (
+            {post.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
@@ -527,17 +537,27 @@ export default function AdmittedClient({ imageSets }) {
               >
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 pb-4">
-                  <span className="bg-[rgba(0,136,255,0.91)] backdrop-blur-[10px] text-white font-bold px-4 py-2 rounded-full text-sm">
-                    Screen {screen.screen}
-                  </span>
+                  {item.isCaption ? (
+                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full text-sm">
+                      📝 Caption
+                    </span>
+                  ) : (
+                    <span className="bg-[rgba(0,136,255,0.91)] backdrop-blur-[10px] text-white font-bold px-4 py-2 rounded-full text-sm">
+                      Screen {item.screen}
+                    </span>
+                  )}
                   <button
                     onClick={() => {
-                      const tipNumber = screen.screen > 1 ? `${screen.screen - 1}. ` : ''
-                      const titleWithNumber = `${tipNumber}${screen.title}`
-                      const fullText = screen.subtitle 
-                        ? `${titleWithNumber}\n\n${screen.subtitle}`
-                        : titleWithNumber
-                      copyToClipboard(fullText, index)
+                      if (item.isCaption) {
+                        copyToClipboard(item.title, index)
+                      } else {
+                        const tipNumber = item.screen > 1 ? `${item.screen - 1}. ` : ''
+                        const titleWithNumber = `${tipNumber}${item.title}`
+                        const fullText = item.subtitle 
+                          ? `${titleWithNumber}\n\n${item.subtitle}`
+                          : titleWithNumber
+                        copyToClipboard(fullText, index)
+                      }
                     }}
                     className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                       copiedIndex === index
@@ -550,27 +570,27 @@ export default function AdmittedClient({ imageSets }) {
                 </div>
 
                 {/* Content Grid */}
-                <div className="grid md:grid-cols-2 gap-6 p-6 pt-2">
+                <div className={`${item.image ? 'grid md:grid-cols-2' : ''} gap-6 p-6 pt-2`}>
                   {/* Text Content */}
                   <div className="space-y-4 flex flex-col justify-center">
                     <p className="text-xl font-bold text-gray-900 leading-tight">
-                      {screen.screen > 1 && `${screen.screen - 1}. `}{screen.title}
+                      {!item.isCaption && item.screen > 1 && `${item.screen - 1}. `}{item.title}
                     </p>
                     
-                    {screen.subtitle && (
+                    {item.subtitle && (
                       <p className="text-base text-gray-700 leading-relaxed">
-                        {screen.subtitle}
+                        {item.subtitle}
                       </p>
                     )}
                   </div>
 
                   {/* Image Content */}
-                  {screen.image && (
+                  {item.image && (
                     <div className="space-y-3">
                       <div className="relative h-80 rounded-xl overflow-hidden bg-gray-100 shadow-md">
                         <Image
-                          src={screen.image}
-                          alt={`Screen ${screen.screen} background`}
+                          src={item.image}
+                          alt={`Screen ${item.screen} background`}
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, 50vw"
@@ -578,7 +598,7 @@ export default function AdmittedClient({ imageSets }) {
                         />
                       </div>
                       <button
-                        onClick={() => downloadImage(screen.image, screen.screen)}
+                        onClick={() => downloadImage(item.image, item.screen)}
                         className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-4 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
