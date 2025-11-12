@@ -270,12 +270,7 @@ const firstPersonAppPlugs = [
   {
     title: "i saved time",
     subtitle: "i uploaded my whole application into an app called Admitted. It gave me a full analysis of my strengths & weaknesses + my odds of getting into a specific school before applying"
-  },
-  {
-    title: "i used data to predict my admit odds",
-    subtitle: "top students didn't \"hope\" they got in > they quantified their exact chances. Apps like \"Admitted\" simulated my acceptance odds by school and showed what was missing in my profile"
-  },
- 
+  }, 
   {
     title: "i used this hidden app no one's talks about ✨",
     subtitle: "there was this app called \"Admitted\" that broke down my whole college strategy. It showed my admit odds, school fit & helped with my personal statement. It was like having an admissions officer in my pocket 🧠📚"
