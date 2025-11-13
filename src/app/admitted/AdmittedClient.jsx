@@ -496,37 +496,22 @@ export default function AdmittedClient({ imageSets }) {
     setTimeout(() => setCopiedIndex(null), 2000)
   }
 
-  const downloadImage = async (imageUrl, screenNumber) => {
-    try {
-      // Pour iOS: utiliser l'API Share native ou fetch avec blob
-      const response = await fetch(imageUrl)
-      const blob = await response.blob()
-      
-      // Vérifier si l'API Web Share est disponible (iOS Safari)
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'test.jpg')] })) {
-        const fileName = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
-        const file = new File([blob], fileName, { type: blob.type })
-        
-        await navigator.share({
-          files: [file],
-          title: `Screen ${screenNumber}`,
-          text: 'Download this image'
-        })
-      } else {
-        // Fallback pour desktop ou anciens navigateurs
-        const url = window.URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.href = url
-        link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-        window.URL.revokeObjectURL(url)
-      }
-    } catch (error) {
-      console.error('Error downloading image:', error)
-      // Dernier fallback: ouvrir dans un nouvel onglet
+  const downloadImage = (imageUrl, screenNumber) => {
+    // Détecter si on est sur mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    
+    if (isMobile) {
+      // Sur mobile: ouvrir l'image dans un nouvel onglet
+      // L'utilisateur peut ensuite faire long press → "Add to Photos"
       window.open(imageUrl, '_blank')
+    } else {
+      // Sur desktop: téléchargement classique
+      const link = document.createElement('a')
+      link.href = imageUrl
+      link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     }
   }
 
@@ -654,7 +639,7 @@ export default function AdmittedClient({ imageSets }) {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
-                        Download Image
+                        {/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 'Open Image' : 'Download Image'}
                       </button>
                     </div>
                   )}
