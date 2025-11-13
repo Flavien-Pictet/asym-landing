@@ -475,15 +475,15 @@ export default function AdmittedClient({ imageSets }) {
     ]
     const ctaImage = selectCTAImage()
     
-    // Create the post with caption card + 6 screens
+    // Create the post with 6 screens + caption card at the end
     const newPost = [
-      { type: "Caption", title: selectedCaption, subtitle: "", image: null, isCaption: true },
       { screen: 1, type: "Hook", title: hookText, subtitle: "", image: hookImage },
       { screen: 2, type: "Tip 1", title: processedTips[0].title, subtitle: processedTips[0].subtitle, image: tipImages[0] },
       { screen: 3, type: "Tip 2", title: processedTips[1].title, subtitle: processedTips[1].subtitle, image: tipImages[1] },
       { screen: 4, type: "Tip 3", title: processedTips[2].title, subtitle: processedTips[2].subtitle, image: tipImages[2] },
       { screen: 5, type: "App Plug", title: appPlug.title, subtitle: appPlug.subtitle, image: ctaImage },
-      { screen: 6, type: "Tip 4", title: processedTips[3].title, subtitle: processedTips[3].subtitle, image: tipImages[3] }
+      { screen: 6, type: "Tip 4", title: processedTips[3].title, subtitle: processedTips[3].subtitle, image: tipImages[3] },
+      { type: "Caption", title: selectedCaption, subtitle: "", image: null, isCaption: true }
     ]
     
     setPost(newPost)
