@@ -496,22 +496,40 @@ export default function AdmittedClient({ imageSets }) {
     setTimeout(() => setCopiedIndex(null), 2000)
   }
 
-  const downloadImage = (imageUrl, screenNumber) => {
-    // Détecter si on est sur mobile
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-    
-    if (isMobile) {
-      // Sur mobile: ouvrir l'image dans un nouvel onglet
-      // L'utilisateur peut ensuite faire long press → "Add to Photos"
-      window.open(imageUrl, '_blank')
-    } else {
-      // Sur desktop: téléchargement classique
-      const link = document.createElement('a')
-      link.href = imageUrl
-      link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+  const downloadImage = async (imageUrl, screenNumber) => {
+    try {
+      const response = await fetch(imageUrl)
+      const blob = await response.blob()
+      
+      // Vérifier si l'API Web Share est disponible (iOS/Android)
+      if (navigator.share && navigator.canShare) {
+        const fileName = `admitted-screen-${screenNumber}.jpg`
+        const file = new File([blob], fileName, { type: blob.type })
+        
+        try {
+          await navigator.share({
+            files: [file],
+            title: `Screen ${screenNumber}`
+          })
+        } catch (shareError) {
+          // Si l'utilisateur annule, ne rien faire
+          if (shareError.name !== 'AbortError') {
+            throw shareError
+          }
+        }
+      } else {
+        // Fallback pour desktop
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.download = `admitted-screen-${screenNumber}.${imageUrl.split('.').pop().split('?')[0]}`
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+      }
+    } catch (error) {
+      console.error('Error downloading image:', error)
     }
   }
 
@@ -639,7 +657,7 @@ export default function AdmittedClient({ imageSets }) {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
-                        {/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 'Open Image' : 'Download Image'}
+                        Save Image
                       </button>
                     </div>
                   )}
