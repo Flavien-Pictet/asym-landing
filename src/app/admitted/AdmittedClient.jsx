@@ -55,7 +55,9 @@ const firstPersonHooks = [
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
   { text: "ONLY things u need to know to get into THE IVIES", imageTag: "general" },
+  { text: "Things to do before filling out your activities section for college apps 🌟", imageTag: "general" },
   { text: "exposing college admissions secrets", imageTag: "general" },
+  { text: "uc application tips I wish I have found out sooner", imageTag: "general" },
   { text: "5 non-basic tips to help you get into an Ivy league", imageTag: "general" },
   { text: "secrets abt college apps i only learned AFTER submitting 👉", imageTag: "general" },
   { text: "college apps tips that carried my admission into harvard 👉", imageTag: "general" },
@@ -408,6 +410,32 @@ export default function AdmittedClient({ imageSets }) {
     return selectRandomImage(imageSets.cta)
   }
 
+  // Weighted random selection for neutral hooks (prioritize specific hooks)
+  const selectWeightedNeutralHook = () => {
+    // High priority hooks (2x probability)
+    const highPriorityTexts = [
+      "secrets abt college apps i only learned AFTER submitting 👉",
+      "college apps tips that carried my admission into harvard 👉"
+    ]
+    
+    // Separate high priority and normal hooks
+    const highPriorityHooks = neutralHooks.filter(hook => 
+      highPriorityTexts.includes(hook.text)
+    )
+    const normalHooks = neutralHooks.filter(hook => 
+      !highPriorityTexts.includes(hook.text)
+    )
+    
+    // Create weighted array: high priority hooks appear twice, normal hooks once
+    const weightedHooks = [
+      ...highPriorityHooks,
+      ...highPriorityHooks, // Add high priority twice for 2x probability
+      ...normalHooks
+    ]
+    
+    return weightedHooks[Math.floor(Math.random() * weightedHooks.length)]
+  }
+
   const generatePost = () => {
     // Select random caption
     const selectedCaption = captions[Math.floor(Math.random() * captions.length)]
@@ -425,7 +453,7 @@ export default function AdmittedClient({ imageSets }) {
     
     const hookObj = useFirstPerson 
       ? firstPersonHooks[Math.floor(Math.random() * firstPersonHooks.length)]
-      : neutralHooks[Math.floor(Math.random() * neutralHooks.length)]
+      : selectWeightedNeutralHook()
     
     let hookText = hookObj.text
     const hookImageTag = hookObj.imageTag
