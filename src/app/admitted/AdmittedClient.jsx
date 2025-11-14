@@ -49,12 +49,15 @@ const firstPersonHooks = [
   { text: 'slightly "psychotic" things i did in high school that got me into {UNIVERSITY}', imageTag: "general" },
   { text: "i applied to {totalColleges} colleges & was accept to {acceptedColleges} (including Duke & NYU) here's how 👉", imageTag: "general" },
   { text: "i got into an Ivy League with 3.5 GPA. Here's how 👉", imageTag: "general" },
-  { text: "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa", imageTag: "general" }
+  { text: "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa", imageTag: "general" },
+  { text: "5 things i did in my college application to get into {UNIVERSITY}", imageTag: "general" },
+  { text: "secrets i learned from talking to {UNIVERSITY} admission officers 👉", imageTag: "general" },
 ]
 
 // Neutral/instructional hooks (use with instructional tips)
 const neutralHooks = [
   { text: "ONLY things u need to know to get into THE IVIES", imageTag: "general" },
+  { text: "5 secrets admissions officers won’t tell you 👉 from someone that got into stanford, jhu, & yale! (’29)", imageTag: "general" },
   { text: "Things to do before filling out your activities section for college apps 🌟", imageTag: "general" },
   { text: "exposing college admissions secrets", imageTag: "general" },
   { text: "uc application tips I wish I have found out sooner", imageTag: "general" },
@@ -68,7 +71,8 @@ const neutralHooks = [
   { text: "5 things to do before submitting your college apps 👉", imageTag: "general" },
   { text: "college app tips that will get you accepted 👉", imageTag: "general" },
   { text: "secrets all international students use to get into Ivy Leagues", imageTag: "general" },
-  { text: "how to get into an Ivy League if you're DUMB 👉", imageTag: "general" }
+  { text: "how to get into an Ivy League if you're DUMB 👉", imageTag: "general" },
+  { text: "if you know this, you’re already ahead of 90% of college applicants 👉", imageTag: "general" },
 ]
 
 // First person tips
@@ -76,6 +80,22 @@ const firstPersonTips = [
   {
     title: "i started my app strategy early",
     subtitle: "everyone panics last minute. i didn't. i had deadlines, essays & recs mapped out by junior spring. Time buys clarity & confidence"
+  },
+  {
+    title: "used the additional info section purposefully",
+    subtitle: "i explained how transferring schools halfway through high school and dealing with unexpected family responsibilities led to my first B. i wanted admissions officers to understand how i learned to balance pressure and adapt"
+  },
+  {
+    title: "stalked my harvard interviewer and interview questions",
+    subtitle: "before meeting my interviewer i searched everywhere to learn anything about her (job, ethnicity, achievements) so i knew what i could say to connect with her in the interview. i never had the opportunity to visit harvard before so i reached out to alumnis to get in calls to learn about their niche school experience. i searched reddit, linkedin, tiktok, blogs, youtube, literally everywhere to prep answers to possible interview questions."
+  },
+  {
+    title: "my test scores and APs helped balance my low GPA",
+    subtitle: "i took hard classes, even if they lowered my GPA because i wanted to show genuine interest and willingness to challenge myself academically. colleges saw that i pushed myself instead of playing it safe!"
+  },
+  {
+    title: "wrote diaries, not essays intended for college apps",
+    subtitle: "whenever i would write essays intended for college apps i would get overwhelmed and couldn’t start. the common app essay i submitted ended up being a journal entry i wrote one night i crashed out and laid out my raw feelings, life story, aspirations"
   },
   {
     title: "saw a problem and came up with a solution that utilized what I was good at",
@@ -166,9 +186,29 @@ const firstPersonTips = [
     subtitle: "polished, try-hard essays blend in. Real stories with imperfect edges stand out. If it sounds like ChatGPT or a press release it's an automatic pass"
   },
   {
+    title: "i focused on what i could control",
+    subtitle: "my gpa wasn’t going to suddenly change, but my application story? that’s something i could shape focused on writing authentic and original essays… kept it raw, weird, but also fun!"
+  },
+  {
     title: "i stopped caring about AP exam",
     subtitle: "i learned that AP test scores literally didn't matter for admissions > what mattered was course rigor on my transcript, not the 1–5 score I got on the AP exam"
   },
+  {
+    title: "shadowed a local neurosurgeon for a summer",
+    subtitle: "i journaled patient cases and turned that into a reflection essay on empathy + precision. it ended up shaping one of my strongest supplements!",
+  },
+  {
+    title: "joined a national biology competition team",
+    subtitle: "we prepped for months and placed top 5% nationally. the collaboration + deep learning gave me so much essay material for showing passion and persistence"
+  },
+  {
+    title: "built a mini genetics education site with classmates",
+    subtitle: "we simplified complex genetic disorders for high schoolers using infographics. it taught me how to communicate science clearly, something i mentioned in a couple of my interviews!"
+  },
+  {
+    title: "documented every research opportunity in Notion",
+    subtitle: "i built a full tracker for labs, deadlines, and outreach responses. it made cold emailing professors way more organized and kept me from losing track"
+  }
 ]
 
 // Instructional/neutral tips
@@ -176,6 +216,18 @@ const instructionalTips = [
   {
     title: "make your major obvious",
     subtitle: "admissions officers shouldn't have to guess your academic focus. your activities, essays & awards all need to point in one direction"
+  },
+  {
+    title: "“why us” essays are DEALBREAKERS",
+    subtitle: "officers said this is the fastest way to tell who’s serious and who’s copy/pasting. generic stuff like “great academics and opportunities” makes them roll their eyes — they want to see you’ve done homework on professors, clubs, or school values that are unique."
+  },
+  {
+    title: "the “summary sheet” matters more than your whole app",
+    subtitle: "AO’s often make a quick summary page that condenses your entire file into a few bullet points. that summary might be all the committee ever sees. if your narrative isn’t obvious, you risk being reduced to a bland one-liner."
+  },
+  {
+    title: "schools really do track demonstrated interest",
+    subtitle: "at a lot of schools, they literally track if you open their emails, click links, attend info sessions. it’s not always public, but it can tip the scale when they’re choosing between two similar applicants. sounds minor, but opening those emails can actually matter"
   },
   {
     title: "abbreviations",
@@ -248,7 +300,11 @@ const instructionalTips = [
   {
     title: "build external validation before you apply",
     subtitle: "don't wait for colleges to decide if you're exceptional > get featured, published & awarded or recognized beforehand."
-  }
+  },
+  {
+    title: "rec letters get graded!!",
+    subtitle: "admissions literally score recs based on how specific they are. vague “hardworking student” recs don’t move the needle, but when a teacher includes real stories and examples, it can actually bump you up compared to someone with the same stats."
+  },
 ]
 
 // First person app plugs (use with first person hooks)
@@ -258,7 +314,15 @@ const firstPersonAppPlugs = [
     subtitle: "once I found out there were apps like Admitted that broke down my whole college strategy based on my own strength & weakness?? yeah. gamechanger 🩷"
   },
   {
-    title: "i ran my essay draft through Admitted at least once",
+    title: "AI changed the game",
+    subtitle: "i couldn’t afford tutors so i learned how to use AI to help me study. scanning tools like tutorup or photomath are great for math! i wish i found it sooner!! changing my study habits raised my 2.9 to a 3.4…"
+  },
+  {
+    title: "used an essay grader to refine my essays before submission",
+    subtitle: "after getting my drafts reviewed by friends, i’d run them through Admitted for a free grade and some last minute feedback! helped fix some of the flaws in my essay i didn’t notice"
+  },
+  {
+    title: "i ran my essay draft through Admitted",
     subtitle: "it gave me a completely graded review with delailed note"
   },
   {
@@ -288,6 +352,10 @@ const firstPersonAppPlugs = [
   {
     title: "AI was my secret weapon",
     subtitle: "i used this app \"Admitted\" where i uploaded my entire app & got a breakdown of what ivy league committees valued most in cases like mine so I knew what to fix before i applied"
+  },
+  {
+    title: "common data set (CDS)",
+    subtitle: "most ppl have no idea this even exists. it literally tells u what a college actually cares about (like if they weigh essays heavier than test scores). if u read the cds for each school, u basically have their grading rubric. also… this is why i always say run ur essays thru Admitted at least once so u can make sure ur essays line up w what colleges actually want."
   }
 ]
 
@@ -296,6 +364,10 @@ const neutralAppPlugs = [
   {
     title: "use tools that make it easier",
     subtitle: "once I found out there were apps like Admitted that breaks down your whole college strategy based on your own strength & weakness?? yeah. gamechanger 🩷"
+  },
+  {
+    title: "your app is usually read in ~ 5 min",
+    subtitle: "most people picture a long deep read, but in reality AO’s skim your file fast (sometimes under 5 minutes). they’re trained to look for key signals → GPA trend, rigor, essay theme, spike. if you don’t make your story obvious, it can get lost in the speed-read. this is why i tell ppl to run their essays through Admitted at least once, it gives you a free graded review + shows if your story comes across clearly in those 5 mins"
   },
   {
     title: "use ai or you’re falling behind",
@@ -344,7 +416,11 @@ const neutralAppPlugs = [
   {
     title: "AI resources",
     subtitle: "there's apps like \"Admitted\" where u upload your entire app & get a breakdown of what ivy league committees value most in cases like yours so u know what to fix before you apply."
-  }
+  },
+  {
+    title: "rigor + essays outweigh everything",
+    subtitle: "stanford officers basically admitted that a slightly lower GPA with tough classes + strong essays beats a 4.0 of easy classes. essays were the piece they circled back to again and again. i’d def recommend running your draft through Admitted at least once, it’s free and gives you a graded review so you know where you stand."
+  },
 ]
 
 export default function AdmittedClient({ imageSets }) {
