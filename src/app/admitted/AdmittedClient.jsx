@@ -439,6 +439,39 @@ const toolsResources = [
   }
 ]
 
+// TikTok Account Generation Data
+const tiktokFirstNames = [
+  "ella", "isabelle", "sarah", "jessica", "emily", "jasmine", 
+  "natalie", "julia", "leah", "sophie", "shakira", "claire", "isabella", 
+  "zoe", "hailey", "olivia", "emma", "audrey", "joy", "camille", "sophia",
+  "mia", "ava", "lily", "grace", "hannah", "chloe", "madison", "amelia",
+  "charlotte", "aria", "elena", "maya", "nicole", "victoria", "alexandra",
+  "samantha", "luna", "stella", "hazel", "violet", "scarlett", "aurora"
+]
+
+const tiktokLastNames = [
+  "linbrown", "johnson", "smith", "williams", "davis", "miller", "wilson",
+  "moore", "taylor", "anderson", "thomas", "jackson", "white", "harris"
+]
+
+const tiktokKeywords = [
+  "ivymatch", "collegeapps", "admitted", "admits", "admission", "ivyleague",
+  "harvard", "gets.in", "collegetips", "ivybound", "accepted", "collegelife"
+]
+
+const tiktokBios = [
+  "helping students get into their dream colleges 🎓",
+  "la & {UNIVERSITY}",
+  "collge content just for fun 📚",
+  "making college apps less stressful 💙",
+  "your college admission bestie 🫶",
+  "follow along my college journey!",
+  "sharing my college aps learnings 👨‍🎓📝",
+  "{UNIVERSITY} undergrad '29",
+  "cs @ {UNIVERSITY}",
+  "💌: {EMAIL}@gmail.com"
+]
+
 // Neutral/instructional app plugs (use with neutral hooks)
 const neutralAppPlugs = [
   {
@@ -506,6 +539,109 @@ const neutralAppPlugs = [
 export default function AdmittedClient({ imageSets }) {
   const [post, setPost] = useState(null)
   const [copiedIndex, setCopiedIndex] = useState(null)
+  const [tiktokAccounts, setTiktokAccounts] = useState(null)
+
+  // Generate unique username using timestamp + random combination
+  const generateUniqueUsername = () => {
+    // Get timestamp-based unique suffix (last 2-3 digits of timestamp for uniqueness)
+    const timestamp = Date.now().toString().slice(-3)
+    
+    // Select random first name, last name, and keyword
+    const firstName = tiktokFirstNames[Math.floor(Math.random() * tiktokFirstNames.length)]
+    const lastName = tiktokLastNames[Math.floor(Math.random() * tiktokLastNames.length)]
+    const keyword = tiktokKeywords[Math.floor(Math.random() * tiktokKeywords.length)]
+    
+    // Generate with different patterns matching the examples
+    const patterns = [
+      `${firstName}.${keyword}`,                    // ella.ivymatch, jessica.admitted
+      `${firstName}_${lastName}`,                   // david_linbrown
+      `${firstName}.gets.in`,                       // isabelle.gets.in, emma.gets.in
+      `ivy_with${firstName}`,                       // ivy_withsarah, ivy_withjoy
+      `${firstName}.${keyword.split('.')[0]}`,      // emily.admits, natalie.harvard
+      `admit.with.${firstName}`,                    // admit.with.julia
+      `ivywith.${firstName}`,                       // ivywith.leah
+      `${firstName}.collegeapps`,                   // ella.collegeapps
+      `${firstName}.admission`,                     // julia.admission, zoe.admission
+    ]
+    
+    let pattern = patterns[Math.floor(Math.random() * patterns.length)]
+    
+    // Store in localStorage to track usage
+    const usedUsernames = JSON.parse(localStorage.getItem('usedTiktokUsernames') || '[]')
+    
+    // If by rare chance it exists, add timestamp suffix
+    if (usedUsernames.includes(pattern)) {
+      // Add small number to make it unique
+      pattern = `${pattern}${timestamp.slice(-2)}`
+    }
+    
+    usedUsernames.push(pattern)
+    localStorage.setItem('usedTiktokUsernames', JSON.stringify(usedUsernames))
+    
+    return pattern
+  }
+
+  // Extract first name from username for display
+  const extractFirstNameFromUsername = (username) => {
+    // Remove @ if present
+    const cleanUsername = username.replace('@', '')
+    
+    // Extract first name from various patterns
+    if (cleanUsername.includes('_with')) {
+      // ivy_withsarah -> Sarah
+      const name = cleanUsername.split('_with')[1] || cleanUsername.split('.')[0]
+      return name.charAt(0).toUpperCase() + name.slice(1)
+    } else if (cleanUsername.startsWith('admit.with.') || cleanUsername.startsWith('ivywith.')) {
+      // admit.with.julia -> Julia
+      const parts = cleanUsername.split('.')
+      const name = parts[parts.length - 1]
+      return name.charAt(0).toUpperCase() + name.slice(1)
+    } else {
+      // ella.ivymatch -> Ella, david_linbrown -> David
+      const name = cleanUsername.split(/[._]/)[0]
+      return name.charAt(0).toUpperCase() + name.slice(1)
+    }
+  }
+
+  // Generate TikTok account (singular - only 1 profile)
+  const generateTiktokAccounts = () => {
+    // Get general hook images for profile pictures
+    const generalImages = imageSets?.hooks?.general || []
+    
+    const username = generateUniqueUsername()
+    const displayName = extractFirstNameFromUsername(username)
+    let bio = tiktokBios[Math.floor(Math.random() * tiktokBios.length)]
+    
+    // Replace all variable placeholders with random values (not full caps for bio)
+    const selectedUniversity = universities[Math.floor(Math.random() * universities.length)]
+    const selectedEliteUniversity = eliteUniversities[Math.floor(Math.random() * eliteUniversities.length)]
+    
+    // Generate email from username (use first name in lowercase)
+    const emailPrefix = displayName.toLowerCase()
+    
+    // Replace university placeholders (both {university} and {UNIVERSITY} with normal capitalization)
+    bio = bio.replace(/\{university\}/g, selectedUniversity)
+    bio = bio.replace(/\{UNIVERSITY\}/g, selectedUniversity)
+    bio = bio.replace(/\{eliteUniversity\}/g, selectedEliteUniversity)
+    
+    // Replace email placeholder
+    bio = bio.replace(/\{EMAIL\}/g, emailPrefix)
+    
+    // Select random profile picture from general images
+    const profilePicture = generalImages.length > 0 
+      ? generalImages[Math.floor(Math.random() * generalImages.length)]
+      : null
+    
+    const account = {
+      username: `@${username}`,
+      displayName,
+      bio,
+      profilePicture
+    }
+    
+    setTiktokAccounts([account]) // Array with single account
+    setPost(null) // Close posts section
+  }
 
   // Generate random GPA between 3.0 and 3.7
   const generateRandomGPA = () => {
@@ -676,6 +812,7 @@ export default function AdmittedClient({ imageSets }) {
     ]
     
     setPost(newPost)
+    setTiktokAccounts(null) // Close TikTok accounts section
     setCopiedIndex(null)
   }
 
@@ -766,6 +903,7 @@ export default function AdmittedClient({ imageSets }) {
     ]
     
     setPost(newPost)
+    setTiktokAccounts(null) // Close TikTok accounts section
     setCopiedIndex(null)
   }
 
@@ -813,7 +951,7 @@ export default function AdmittedClient({ imageSets }) {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 py-12 px-4">
+    <main className="min-h-[100dvh] bg-gradient-to-br from-purple-50 via-white to-pink-50 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -829,20 +967,176 @@ export default function AdmittedClient({ imageSets }) {
           </p>
         </motion.div>
 
-        {/* Generate Button */}
+        {/* Generate Buttons */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="flex justify-center mb-12"
+          className="flex flex-col items-center gap-4 mb-12"
         >
           <button
             onClick={generatePost}
-            className="bg-black bg-opacity-90 hover:bg-opacity-100 text-white font-bold py-4 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 text-lg"
+            className="bg-black bg-opacity-90 hover:bg-opacity-100 text-white font-bold py-4 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 text-lg w-80"
           >
-            ✨ Generate New Post
+            ✨ Generate new post
+          </button>
+          
+          <button
+            onClick={generateTiktokAccounts}
+            className="bg-white border text-gray-900 font-bold py-4 px-8 rounded-full transform hover:scale-105 transition-all duration-200 text-lg w-80"
+            style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }}
+          >
+            Generate tiktok profile
           </button>
         </motion.div>
+
+        {/* TikTok Accounts Display */}
+        {tiktokAccounts && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-12"
+          >
+            <div className="flex justify-center">
+              {tiktokAccounts.map((account, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-2xl shadow-lg p-6 border-2 border-gray-100 hover:shadow-xl transition-all duration-200 w-full max-w-md"
+                >
+                  {/* Profile Picture Section */}
+                  <div className="mb-4">
+                    <div className="flex justify-center">
+                      {account.profilePicture ? (
+                        <div className="relative">
+                          <Image
+                            src={account.profilePicture}
+                            alt="Profile"
+                            width={80}
+                            height={80}
+                            className="w-20 h-20 rounded-full object-cover shadow-lg"
+                            unoptimized
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                          {account.username[1].toUpperCase()}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Display Name */}
+                  <div className="mb-4">
+                    <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">
+                      Name
+                    </label>
+                    <div className="bg-gray-50 rounded-lg p-3 flex items-center justify-between group">
+                      <p className="text-sm text-gray-700 font-medium">{account.displayName}</p>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(account.displayName)
+                          setCopiedIndex(`name-${index}`)
+                          setTimeout(() => setCopiedIndex(null), 2000)
+                        }}
+                        className="text-gray-500 hover:text-gray-700 transition-colors"
+                        title="Copy name"
+                      >
+                        {copiedIndex === `name-${index}` ? (
+                          <span className="text-green-600">✓</span>
+                        ) : (
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Username */}
+                  <div className="mb-4">
+                    <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">
+                      Username
+                    </label>
+                    <div className="bg-gray-50 rounded-lg p-3 flex items-center justify-between group">
+                      <p className="text-sm font-mono text-gray-700 font-medium">{account.username}</p>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(account.username.substring(1)) // Remove @
+                          setCopiedIndex(`username-${index}`)
+                          setTimeout(() => setCopiedIndex(null), 2000)
+                        }}
+                        className="text-gray-500 hover:text-gray-700 transition-colors"
+                        title="Copy username"
+                      >
+                        {copiedIndex === `username-${index}` ? (
+                          <span className="text-green-600">✓</span>
+                        ) : (
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Bio */}
+                  <div className="mb-4">
+                    <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">
+                      Bio
+                    </label>
+                    <div className="bg-gray-50 rounded-lg p-3 flex items-start justify-between gap-3 group">
+                      <p className="text-sm text-gray-600 leading-relaxed flex-1">
+                        {account.bio}
+                      </p>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(account.bio)
+                          setCopiedIndex(`bio-${index}`)
+                          setTimeout(() => setCopiedIndex(null), 2000)
+                        }}
+                        className="text-gray-500 hover:text-gray-700 transition-colors flex-shrink-0"
+                        title="Copy bio"
+                      >
+                        {copiedIndex === `bio-${index}` ? (
+                          <span className="text-green-600">✓</span>
+                        ) : (
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Download Profile Picture Button */}
+                  <button
+                    onClick={() => account.profilePicture && downloadImage(account.profilePicture, `profile-${account.username.substring(1)}`)}
+                    disabled={!account.profilePicture}
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 font-semibold py-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Profile Picture
+                  </button>
+
+                  {/* Subtle warning message */}
+                  <div className="mt-4 flex items-start justify-center gap-2 px-4">
+                    <svg className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-xs text-gray-400 text-center leading-relaxed">
+                      If this username is already taken,<br />simply generate a new one
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* Post Screens */}
         {post && (
@@ -947,7 +1241,7 @@ export default function AdmittedClient({ imageSets }) {
         )}
 
         {/* Empty State */}
-        {!post && (
+        {!post && !tiktokAccounts && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
