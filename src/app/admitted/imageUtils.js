@@ -65,7 +65,8 @@ export function getAllImageSets() {
   return {
     hooks: getImagesBySubdirectory('assets/images/admitted-hooks'),
     tips: getImagesFromDirectory('assets/images/admitted-tips'),
-    cta: getImagesFromDirectory('assets/images/admitted-cta')
+    cta: getImagesFromDirectory('assets/images/admitted-cta'),
+    tools: getImagesBySubdirectory('assets/images/admitted-tools')
   }
 }
 

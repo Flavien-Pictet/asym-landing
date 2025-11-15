@@ -359,6 +359,86 @@ const firstPersonAppPlugs = [
   }
 ]
 
+// Tools category - Resources for joining Ivy League
+const toolsHooks = [
+  { text: "ranking college app resources that got me into {UNIVERSITY} 🎄 (‘29)", imageTag: "general" },
+  { text: "the best college app tools i personally used last year! 👉", imageTag: "general" },
+  { text: "my favorite college app tools that helped me get into {UNIVERSITY} 🎄 (‘29)", imageTag: "general" },
+  { text: "the best ressources I used for college apps! from someone who got into stanford, yale & john hopkins! ('29)", imageTag: "general" },
+
+]
+
+const toolsResources = [
+  {
+    id: "yale-podcast",
+    title: "Yale Admissions Podcast",
+    subtitles: [
+      "literally the most slept-on admissions resource. nobody talks about it but they drop so many hidden gems straight from actual officers. barely anyone even knows it exists, which is exactly why you should binge it. feels like you're getting insider info you're not supposed to hear lol",
+      "criminally underrated, Yale officers explain how they read apps, what stands out, and common mistakes. even though it's yale, most advice applies everywhere. felt like real insider info from the people making the decisions",
+      // Ajoute d'autres variantes ici
+    ],
+    position: 7
+  },
+  {
+    id: "fiveable",
+    title: "Fiveable",
+    subtitles: [
+      "honestly the best free resource for AP + SAT prep if you hate boring study sessions. their live reviews and group study rooms made it feel way less isolating & is perfect if you’re juggling tests + apps at the same time",
+      // Ajoute d'autres variantes ici
+    ],
+    position: 6
+  },
+  {
+    id: "reddit",
+    title: "r/ApplyingToCollege",
+    subtitles: [
+      "this subreddit is like the wild west of admissions, you'll see everything from chance-me posts to niche questions you won't find elsewhere.\n\nits super useful for quick takes, but the comparison culture + negativity can get messy and toxic",
+      // Ajoute d'autres variantes ici
+    ],
+    position: 5
+  },
+  {
+    id: "prepscholar",
+    title: "PrepScholar Blog",
+    subtitles: [
+      "PrepScholar has guides on everything: essays, test prep, APs, college lists.\n\nsuper organized and reliable if you're just starting out, but it can also feel a bit generic.\n\nstill one of the better free foundations out there",
+      // Ajoute d'autres variantes ici
+    ],
+    position: 4
+  },
+  {
+    id: "collegeguy",
+    title: "College Essay Guy",
+    subtitles: [
+      "this dude is the goat, his free guides + brainstorming exercises make it way easier to start instead of staring at a blank doc.\n\ni used his stuff to structure my essays and it helped a ton, only downside is his guides aren't that personalized",
+      "this guy is the og of college essay help. actually God tier when it comes to brainstorming + structuring essays. i used his free guides and videos to figure out my topics and how to tell my story. the way he breaks down essay types and gives you step by step frameworks makes the whole process way less overwhelming"
+      // Ajoute d'autres variantes ici
+    ],
+    position: 3
+  },
+  {
+    id: "admitted",
+    title: "Admitted",
+    subtitles: [
+      "lowkey a life-saver if you can't drop thousands of $$$ on a counselor.\n\ntheir essay review tool is super detailed, like they'll grade you and give line-by-line feedback instead of just vague \"this could be stronger\" comments.\n\nalso has a grading feature that shows where your essay stands and is pretty affordable",
+      "honestly the best tool if you're on a budget. gives you AI-powered feedback that's actually specific, not generic bs.\n\nthey literally grade your essay and show you exactly where you're losing points. way better than asking your english teacher for the 5th time",
+      "this saved me so much money. instead of paying $200+/hr for a counselor, i got detailed line-by-line feedback for like $20.\n\nthe grading system is super helpful too, shows you where your essay actually stands compared to accepted students",
+      "saved me during essay season fr. i couldn't afford a counselor but their essay reviews were honestly 10x better for waaaay cheaper. i absolutely loved the grading system + the line by line feedback, it was so specific and actually helped me improve my essays. all the other stuff i tried for essays sucked lol",
+      // Ajoute d'autres variantes ici
+    ],
+    position: 2
+  },
+  {
+    id: "leda-scholars",
+    title: "LEDA Scholars Program",
+    subtitles: [
+      "helps w legit EVERYTHING! my LEDA advisor was so supportive they helped me with my essays, resumes, extracurricular strategy, interview prep, navigating financial aid forms, etc. if you're a first gen / low income student who wants to get into top colleges, this is the perfect program to apply to!",
+      // Ajoute d'autres variantes ici
+    ],
+    position: 1
+  }
+]
+
 // Neutral/instructional app plugs (use with neutral hooks)
 const neutralAppPlugs = [
   {
@@ -465,6 +545,27 @@ export default function AdmittedClient({ imageSets }) {
     return selectRandomImage(allHookImages)
   }
 
+  // Select tool image based on tool ID
+  const selectToolImage = (toolId) => {
+    if (!imageSets?.tools) return null
+    
+    // Try to get images for the specific tool
+    const toolImages = imageSets.tools[toolId]
+    if (toolImages && toolImages.length > 0) {
+      return selectRandomImage(toolImages)
+    }
+    
+    // Fallback to general tools images if available
+    const generalImages = imageSets.tools['general']
+    if (generalImages && generalImages.length > 0) {
+      return selectRandomImage(generalImages)
+    }
+    
+    // Ultimate fallback: any tool image
+    const allToolImages = Object.values(imageSets.tools).flat()
+    return selectRandomImage(allToolImages)
+  }
+
   // Select CTA image with weighted probability
   const selectCTAImage = () => {
     if (!imageSets?.cta || imageSets.cta.length === 0) return null
@@ -512,6 +613,72 @@ export default function AdmittedClient({ imageSets }) {
     return weightedHooks[Math.floor(Math.random() * weightedHooks.length)]
   }
 
+  const generateToolsPost = () => {
+    // Select random caption
+    const selectedCaption = captions[Math.floor(Math.random() * captions.length)]
+    
+    // Select random universities for hook replacement
+    const selectedUniversity = universities[Math.floor(Math.random() * universities.length)]
+    
+    // Get the tools hook
+    const hookObj = toolsHooks[0] // Currently only one hook for tools
+    let hookText = hookObj.text
+    const hookImageTag = hookObj.imageTag
+    
+    // Replace university placeholders
+    hookText = hookText.replace(/\{university\}/g, selectedUniversity)
+    hookText = hookText.replace(/\{UNIVERSITY\}/g, selectedUniversity.toUpperCase())
+    
+    // Select hook image
+    const hookImage = selectHookImage(hookImageTag)
+    
+    // ALWAYS include "Admitted" tool
+    const admittedTool = toolsResources.find(tool => tool.id === "admitted")
+    
+    // Get all other tools (excluding Admitted)
+    const otherTools = toolsResources.filter(tool => tool.id !== "admitted")
+    
+    // Randomly select 3 tools from the others
+    const shuffledOthers = [...otherTools].sort(() => Math.random() - 0.5)
+    const selectedOthers = shuffledOthers.slice(0, 3)
+    
+    // Create array with selected tools: [tool1, Admitted, tool3, tool4]
+    // Admitted is always in 2nd position (index 1)
+    const finalTools = [
+      selectedOthers[0],  // First random tool
+      admittedTool,       // Admitted always in 2nd position
+      selectedOthers[1],  // Third tool
+      selectedOthers[2]   // Fourth tool
+    ]
+    
+    // Map each tool to its corresponding screen
+    const toolScreens = finalTools.map((tool, index) => {
+      const screenNumber = index + 2 // Screens 2, 3, 4, 5
+      
+      // Select random subtitle from the array of variants
+      const randomSubtitle = tool.subtitles[Math.floor(Math.random() * tool.subtitles.length)]
+      
+      return {
+        screen: screenNumber,
+        type: `Tool ${index + 1}`,
+        title: tool.title,
+        subtitle: randomSubtitle,
+        image: selectToolImage(tool.id),
+        toolId: tool.id
+      }
+    })
+    
+    // Create the post with 5 screens (1 hook + 4 tools) + caption card
+    const newPost = [
+      { screen: 1, type: "Hook", title: hookText, subtitle: "", image: hookImage },
+      ...toolScreens,
+      { type: "Caption", title: selectedCaption, subtitle: "", image: null, isCaption: true }
+    ]
+    
+    setPost(newPost)
+    setCopiedIndex(null)
+  }
+
   const generatePost = () => {
     // Select random caption
     const selectedCaption = captions[Math.floor(Math.random() * captions.length)]
@@ -523,6 +690,14 @@ export default function AdmittedClient({ imageSets }) {
     // Generate random college numbers
     const totalColleges = Math.floor(Math.random() * 6) + 23 // 23 to 28
     const acceptedColleges = Math.floor(Math.random() * 5) + 16 // 16 to 20
+    
+    // Randomly choose between first person, instructional, or tools style
+    const randomValue = Math.random()
+    const useTools = randomValue > 0.9 // 10% chance for tools
+    
+    if (useTools) {
+      return generateToolsPost()
+    }
     
     // Randomly choose between first person or instructional style
     const useFirstPerson = Math.random() > 0.5
