@@ -472,6 +472,38 @@ const tiktokBios = [
   "💌: {EMAIL}@gmail.com"
 ]
 
+// TikTok sounds pool
+const tiktokSounds = [
+  {
+    name: "Predador de Perereca",
+    url: "https://www.tiktok.com/t/ZTH3Ds9omFRhq-uQrr9/"
+  },
+  {
+    name: "original sound",
+    url: "https://www.tiktok.com/t/ZTH3DnRHnCUFU-YH3jf/"
+  },
+  {
+    name: "Viva la Vida",
+    url: "https://www.tiktok.com/t/ZTH3DnFXpAmLn-m6qbY/"
+  },
+  {
+    name: "original sound",
+    url: "https://www.tiktok.com/t/ZTH3Dn21yY5jv-ESkfu/"
+  },
+  {
+    name: "original sound",
+    url: "https://vm.tiktok.com/ZNH3DWe4orpno-NwbJe/"
+  },
+  {
+    name: "End of the World",
+    url: "https://vm.tiktok.com/ZNH3DWNjxG5cv-YsfR0/"
+  },  
+  {
+    name: "original sound",
+    url: "https://vm.tiktok.com/ZNH3DWj2aQ1R2-qkSQv/"
+  },
+]
+
 // Neutral/instructional app plugs (use with neutral hooks)
 const neutralAppPlugs = [
   {
@@ -756,6 +788,9 @@ export default function AdmittedClient({ imageSets }) {
     // Select random universities for hook replacement
     const selectedUniversity = universities[Math.floor(Math.random() * universities.length)]
     
+    // Select random TikTok sound
+    const selectedSound = tiktokSounds[Math.floor(Math.random() * tiktokSounds.length)]
+    
     // Get the tools hook
     const hookObj = toolsHooks[0] // Currently only one hook for tools
     let hookText = hookObj.text
@@ -811,7 +846,7 @@ export default function AdmittedClient({ imageSets }) {
       { type: "Caption", title: selectedCaption, subtitle: "", image: null, isCaption: true }
     ]
     
-    setPost(newPost)
+    setPost({ screens: newPost, sound: selectedSound })
     setTiktokAccounts(null) // Close TikTok accounts section
     setCopiedIndex(null)
   }
@@ -823,6 +858,9 @@ export default function AdmittedClient({ imageSets }) {
     // Select random universities
     const selectedUniversity = universities[Math.floor(Math.random() * universities.length)]
     const selectedEliteUniversity = eliteUniversities[Math.floor(Math.random() * eliteUniversities.length)]
+    
+    // Select random TikTok sound
+    const selectedSound = tiktokSounds[Math.floor(Math.random() * tiktokSounds.length)]
     
     // Generate random college numbers
     const totalColleges = Math.floor(Math.random() * 6) + 23 // 23 to 28
@@ -902,7 +940,7 @@ export default function AdmittedClient({ imageSets }) {
       { type: "Caption", title: selectedCaption, subtitle: "", image: null, isCaption: true }
     ]
     
-    setPost(newPost)
+    setPost({ screens: newPost, sound: selectedSound })
     setTiktokAccounts(null) // Close TikTok accounts section
     setCopiedIndex(null)
   }
@@ -1138,14 +1176,49 @@ export default function AdmittedClient({ imageSets }) {
           </motion.div>
         )}
 
-        {/* Post Screens */}
-        {post && (
+        {/* TikTok Sound Card */}
+        {post && post.sound && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-6"
+            className="mb-4"
           >
-            {post.map((item, index) => (
+            <a
+              href={post.sound.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-2xl shadow-lg p-6 border-2 border-gray-100 hover:shadow-xl hover:border-purple-200 transition-all duration-200"
+            >
+              <div className="flex items-center gap-4">
+                <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-full p-4 flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                     Use this music
+                  </p>
+                  <p className="text-base font-bold text-gray-900">
+                    {post.sound.name}
+                  </p>
+                </div>
+                <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+            </a>
+          </motion.div>
+        )}
+
+        {/* Post Screens */}
+        {post && post.screens && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="space-y-4"
+          >
+            {post.screens.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
