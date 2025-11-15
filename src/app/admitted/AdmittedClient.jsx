@@ -1323,7 +1323,7 @@ export default function AdmittedClient({ imageSets }) {
           >
             <div className="text-6xl mb-4">🎬</div>
             <p className="text-gray-500 text-lg">
-              Click the button above <br /> to generate your first post
+              Click the black button above <br /> to generate your first post
             </p>
           </motion.div>
         )}
