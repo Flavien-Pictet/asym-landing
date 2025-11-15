@@ -31,7 +31,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-  min-height: 100vh;
+  min-height: 100dvh;
   font-family: 'Rethink Sans', Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
@@ -39,6 +39,7 @@ body {
 /* Optional: if you want the background to extend when content is shorter than viewport */
 html {
   background: rgb(var(--background-rgb));
+  min-height: 100dvh;
 }
 
 .main-gradient {
