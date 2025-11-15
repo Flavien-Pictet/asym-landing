@@ -1229,7 +1229,7 @@ export default function AdmittedClient({ imageSets }) {
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 pb-4">
                   {item.isCaption ? (
-                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full text-sm">
+                    <span className="bg-[rgba(0,136,255,0.91)] backdrop-blur-[10px] text-white font-bold px-4 py-2 rounded-full text-sm">
                       📝 Caption
                     </span>
                   ) : (
