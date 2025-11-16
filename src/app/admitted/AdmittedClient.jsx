@@ -420,10 +420,10 @@ const toolsResources = [
     id: "admitted",
     title: "Admitted",
     subtitles: [
-      "lowkey a life-saver if you can't drop thousands of $$$ on a counselor.\n\ntheir essay review tool is super detailed, like they'll grade you and give line-by-line feedback instead of just vague \"this could be stronger\" comments.\n\nalso has a grading feature that shows where your essay stands and is pretty affordable",
-      "honestly the best tool if you're on a budget. gives you AI-powered feedback that's actually specific, not generic bs.\n\nthey literally grade your essay and show you exactly where you're losing points. way better than asking your english teacher for the 5th time",
-      "this saved me so much money. instead of paying $200+/hr for a counselor, i got detailed line-by-line feedback for like $20.\n\nthe grading system is super helpful too, shows you where your essay actually stands compared to accepted students",
-      "saved me during essay season fr. i couldn't afford a counselor but their essay reviews were honestly 10x better for waaaay cheaper. i absolutely loved the grading system + the line by line feedback, it was so specific and actually helped me improve my essays. all the other stuff i tried for essays sucked lol",
+      "lowkey a life-saver if you can't drop thousands of $$$ on a counselor.\n\ntheir essay review tool is super detailed, like they'll grade you and give line-by-line feedback instead of just vague \"this could be stronger\" comments. also has a grading feature that shows where your essay stands and is pretty affordable",
+      "honestly the best app if you're on a budget. gives you AI-powered feedback that's actually specific, not generic bs.\n\nthey literally grade your essay and show you exactly where you're losing points. way better than asking your english teacher for the 5th time(it's a mobile app btw not a website)",
+      "this saved me so much money. instead of paying $200+/hr for a counselor, i got detailed line-by-line feedback for like $20. the grading system is super helpful too, shows you where your essay actually stands compared to accepted student. (it's a mobile app btw not a website)",
+      "saved me during essay season fr. i couldn't afford a counselor but their essay reviews were honestly 10x better for waaaay cheaper. i absolutely loved the grading system + the line by line feedback, it was so specific and actually helped me improve my essays. all the other stuff i tried for essays sucked lol. (it's a mobile app btw not a website)",
       // Ajoute d'autres variantes ici
     ],
     position: 2
