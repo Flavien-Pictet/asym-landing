@@ -318,7 +318,7 @@ const firstPersonAppPlugs = [
     subtitle: "i couldn’t afford tutors so i learned how to use AI to help me study. scanning tools like tutorup or photomath are great for math! i wish i found it sooner!! changing my study habits raised my 2.9 to a 3.4…"
   },
   {
-    title: "used an essay grader to refine my essays before submission",
+    title: "used Admitted to refine my essays before submission",
     subtitle: "after getting my drafts reviewed by friends, i’d run them through Admitted for a free grade and some last minute feedback! helped fix some of the flaws in my essay i didn’t notice"
   },
   {
@@ -340,10 +340,6 @@ const firstPersonAppPlugs = [
   {
     title: "i used this hidden app no one's talks about ✨",
     subtitle: "there was this app called \"Admitted\" that broke down my whole college strategy. It showed my admit odds, school fit & helped with my personal statement. It was like having an admissions officer in my pocket 🧠📚"
-  },
-  {
-    title: "i stopped guessing my chances",
-    subtitle: "there was this app \"Admitted\" that predicted my acceptance odds using my real stats & extracurriculars. It even told me what was lowering my chances and how to boost them before I applied"
   },
   {
     title: "what helped me the most?",
