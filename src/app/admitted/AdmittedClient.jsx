@@ -51,7 +51,6 @@ const firstPersonHooks = [
   { text: "i got into an Ivy League with 3.5 GPA. Here's how 👉", imageTag: "general" },
   { text: "how i got into EVERY college i applied to (ucla, nyu, harvard) even with a 3.3 gpa", imageTag: "general" },
   { text: "5 things i did in my college application to get into {UNIVERSITY}", imageTag: "general" },
-  { text: "secrets i learned from talking to {UNIVERSITY} admission officers 👉", imageTag: "general" },
 ]
 
 // Neutral/instructional hooks (use with instructional tips)
@@ -73,6 +72,7 @@ const neutralHooks = [
   { text: "secrets all international students use to get into Ivy Leagues", imageTag: "general" },
   { text: "how to get into an Ivy League if you're DUMB 👉", imageTag: "general" },
   { text: "if you know this, you’re already ahead of 90% of college applicants 👉", imageTag: "general" },
+  { text: "secrets i learned from talking to {UNIVERSITY} admission officers 👉", imageTag: "general" },
 ]
 
 // First person tips
@@ -760,7 +760,9 @@ export default function AdmittedClient({ imageSets }) {
     // High priority hooks (2x probability)
     const highPriorityTexts = [
       "secrets abt college apps i only learned AFTER submitting 👉",
-      "college apps tips that carried my admission into harvard 👉"
+      "college apps tips that carried my admission into harvard 👉",
+      "my mom is on {eliteUniversity} admissions board… here's the actual sauce to get accepted anywhere",
+      "my dad is on {eliteUniversity} admissions board… here's what he told me before submitting my app"
     ]
     
     // Separate high priority and normal hooks
