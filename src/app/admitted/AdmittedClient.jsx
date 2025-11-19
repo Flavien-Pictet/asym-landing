@@ -31,7 +31,7 @@ const eliteUniversities = [
 
 // Captions pool
 const captions = [
-  "Let me know if you have any questions!! 🎓🫶📚🎓 #college #collegeadmission #harvard #essay #ivyleague",
+  "Let me know if you have any questions!! 🎓🫶📚 #college #collegeadmission #harvard #essay #ivyleague",
   "Been gatekeeping these college hacks for too long 🫣🎓 #college #collegeadmission #harvard #essay #ivyleague",
   "here are my ultimate uc app tips i wish i'd known. try these so you can be successful on yours. good luck! #ucla #collegeadmissions #collegetips",
   "heres the breakdown of what i did! hopefully you guys can use it to your advantage 😘 #college #student #advice #application #tips",
