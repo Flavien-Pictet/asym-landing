@@ -189,28 +189,23 @@ export default function BooksniperClient({ imageSets }) {
     // Screen 4: Always an app plug
     const appPlug4 = appPlugs[Math.floor(Math.random() * appPlugs.length)]
     
-    // Screen 5: Mix tips and app plugs randomly
-    const allContentOptions = [
-      ...tips.map(tip => ({ ...tip, isAppPlug: false })),
-      ...appPlugs.map(plug => ({ ...plug, isAppPlug: true }))
-    ]
-    const shuffledContent = [...allContentOptions].sort(() => Math.random() - 0.5)
-    const screen5Content = shuffledContent[0]
+    // Screen 5: Always a tip (not an app plug) - different from screen 3
+    const screen5Tip = shuffledTips.length > 1 ? shuffledTips[1] : shuffledTips[0]
     
     // Select images for each screen
     const hookImage = selectHookImage(hookImageTag)
     const businessContextImage = selectRandomImage(imageSets?.tips)
     const screen3Image = selectRandomImage(imageSets?.tips)
     const screen4Image = selectCTAImage()
-    const screen5Image = screen5Content.isAppPlug ? selectCTAImage() : selectRandomImage(imageSets?.tips)
+    const screen5Image = selectRandomImage(imageSets?.tips)
     
-    // Create the post with 5 screens (1 hook + 1 business context + 1 tip + 1 app plug + mixed content) + caption card
+    // Create the post with 5 screens (1 hook + 1 business context + 1 tip + 1 app plug + 1 tip) + caption card
     const newPost = [
       { screen: 1, type: "Hook", title: hookText, subtitle: "", image: hookImage },
       { screen: 2, type: "Business Context", title: businessContext.title, subtitle: businessContext.subtitle, image: businessContextImage },
       { screen: 3, type: "Tip", title: screen3Tip.title, subtitle: screen3Tip.subtitle, image: screen3Image },
       { screen: 4, type: "App Plug", title: appPlug4.title, subtitle: appPlug4.subtitle, image: screen4Image },
-      { screen: 5, type: screen5Content.isAppPlug ? "App Plug" : "Tip", title: screen5Content.title, subtitle: screen5Content.subtitle, image: screen5Image },
+      { screen: 5, type: "Tip", title: screen5Tip.title, subtitle: screen5Tip.subtitle, image: screen5Image },
       { type: "Caption", title: selectedCaption, subtitle: "", image: null, isCaption: true }
     ]
     
