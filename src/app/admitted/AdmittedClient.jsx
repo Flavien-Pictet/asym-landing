@@ -33,7 +33,7 @@ const eliteUniversities = [
 const captions = [
   "Let me know if you have any questions!! 🎓🫶📚 #college #collegeadmission #harvard #essay #ivyleague",
   "Been gatekeeping these college hacks for too long 🫣🎓 #college #collegeadmission #harvard #essay #ivyleague",
-  "here are my ultimate college app tips i wish i'd known. try these so you can be successful on yours. good luck! #collegeadmissions #collegetips",
+  "here are my ultimate {university} app tips i wish i'd known. try these so you can be successful on yours. good luck! #collegeadmissions #collegetips",
   "heres the breakdown of what i did! hopefully you guys can use it to your advantage 😘 #college #student #advice #application #tips",
   "controversial tips for college success from a finance major at nyu #fyp #turboai #StudyTips #nyutikok #unilife",
   "lmk if you have any questions in the comments & feel free to send a message 💙 #commonapp #university #college #student #collegeapps",
