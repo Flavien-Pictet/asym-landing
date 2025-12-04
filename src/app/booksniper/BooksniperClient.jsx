@@ -25,7 +25,7 @@ const hooks = [
   { text: "how my dad and I make ${MONTHLY_AMOUNT}K per month selling used book on Amazon", imageTag: "dad"},
 	{ text: "hot girls don’t gatekeep how they make money...here's my favorite side hustle"},
 	{ text: "how i turned a 40 dollar investment into over 20,000$ selling used books"},
-	{ text: "i made ${FLIP_PROFIT} flipping a book i got for 1$ at a flea market. here's how 👉"},
+	{ text: "i made {FLIP_PROFIT} flipping a book i got for 1$ at a flea market. here's how 👉"},
 	{ text: "i made over $800 last month selling used books... here’s how u can do it too"},
 	{ text: "i make $1500 per monthscanning books at thrift stores. Yes, really. here's how 👉"},
 ]
@@ -46,7 +46,7 @@ const businessModelContext = [
   },
 	{
     title: "this is retail arbitrage… but for books",
-    subtitle: "you buy low (donation shop, brocante, Emmaüs), sell high (Amazon, eBay, Vinted). same model as sneakers or iPhones — just 10x cheaper to start."
+    subtitle: "you buy low (donation shop, brocante, Emmaüs), sell high (Amazon, eBay, Vinted). same model as sneakers or iPhones... just 10x cheaper to start."
   },
   {
     title: "most people have no idea old books can resell for 10–50x online",
@@ -84,7 +84,7 @@ const tips = [
   },
 	{
     title: "saturday mornings = sourcing goldmine",
-    subtitle: "go early. garage sales, charity shops & brocantes put fresh stock out on weekends. first in = first flips."
+    subtitle: "go early. garage sales, charity shops & brocantes put fresh stock out on weekends. first in = first flips"
   },
   {
     title: "you only need a few winners to make real money",
