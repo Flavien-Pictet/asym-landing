@@ -6,21 +6,36 @@ import Image from 'next/image'
 
 // Captions pool
 const captions = [
-  "my fav side hustle rn"
-]
+    "lmk if you have any questions!! 🫶💸 #bookflipping #sidehustle #vinted #reseller #arbitrage #booksniper",
+    "been gatekeeping this side hustle for way too long 🫣 #vinted #reselling #amazonflip #sidehustle #booksniper",
+    "here’s the full breakdown! you can copy the same system if you’re trying to start from 0 📱💰🫶 #flippingbooks #vintedhustle #bookflipping #booksniper",
+    "controversial but flipping books is better than dropshipping rn #sidehustlecheck #resellingtips #fyp #bookarbitrage #booksniper",
+    "dm if you’re lost or stuck i’ll help if i can!! 📦🧠 #sidehustle #bookscanner #profitflip #hustletips #booksniper",
+    "if you're starting with $0 flipping books is the easiest path up 📚 #genzhustle #booksniper #reseller #arbitrage",
+    "flipping books is a cheat code no one talks about 👀 #sideincome #sidehustle #booksniper #vintedstrategy #amazonflip #booksniper",
+  ]
+  
 
 // Hooks pool (using same structure as admitted)
 const hooks = [
   { text: "I've made 23,600$ over the past 3 months selling used books... here's how 👉"},
-	{ text: "I make $3000/month selling used books... here's how 👉"},
-	{ text: "I pay my rent selling books from goodwill... here's how 👉"},
-	{ text: "how my mom and I make $20K per month selling used book on Amazon"},
+	{ text: "i make ${MONTHLY_INCOME}/month selling used books... here's how 👉"},
+	{ text: "i pay my rent selling books from goodwill... here's how 👉"},
+	{ text: "how my mom and I make ${MONTHLY_AMOUNT}K per month selling used book on Amazon", imageTag: "mom"},
+  { text: "how my dad and I make ${MONTHLY_AMOUNT}K per month selling used book on Amazon", imageTag: "dad"},
 	{ text: "hot girls don’t gatekeep how they make money...here's my favorite side hustle"},
 	{ text: "how i turned a 40 dollar investment into over 20,000$ selling used books"},
+	{ text: "i made ${FLIP_PROFIT} flipping a book i got for 1$ at a flea market. here's how 👉"},
+	{ text: "i made over $800 last month selling used books... here’s how u can do it too"},
+	{ text: "i make $1500 per monthscanning books at thrift stores. Yes, really. here's how 👉"},
 ]
 
 // Business Model Context pool (always used for screen 2)
 const businessModelContext = [
+  {
+    title: "profit comes from price gaps... not luck",
+    subtitle: "places like Vinted, thrift stores & donation centers price books low to clear space. but online marketplaces (Amazon, eBay…) price based on demand. the gap between the two is where the margin lives."
+  },
   {
     title: "most people have no idea old books can resell for 10–50x online",
     subtitle: "You can buy books for $1 at local donation centers & resell them on Amazon or EBay for +30$…this is called books arbitrage"
@@ -33,13 +48,22 @@ const businessModelContext = [
     title: "this is retail arbitrage… but for books",
     subtitle: "you buy low (donation shop, brocante, Emmaüs), sell high (Amazon, eBay, Vinted). same model as sneakers or iPhones — just 10x cheaper to start."
   },
+  {
+    title: "most people have no idea old books can resell for 10–50x online",
+    subtitle: "You can buy books for $1 at local donation centers & resell them on Amazon or EBay for +30$… this is called books arbitrage"
+  },
+  {
+    title: "books ressel is the fastest & cheapest way to make your first 1k / month",
+    subtitle: "you don’t need inventory, capital or connections. just a phone, $2 & 10 minutes in a thrift store."
+  },
+  
   // Add more business model context tips here
 ]
 
 // Tips pool (used for screens 3 and 5, mixed with app plugs)
 const tips = [
   {
-    title: "niche non-fiction books = hidden gold",
+    title: "niche non fiction books = hidden gold",
     subtitle: "skip novels. look for textbooks, legal guides, finance manuals, niche self help… the more boring it looks the better it usually flips"
   },
 	{
@@ -48,7 +72,7 @@ const tips = [
   },
 	{
     title: "never waste time scanning novels",
-    subtitle: "fiction almost never flips. stick to non-fiction shelves with niche topics and boring covers — that’s where the real profit hides."
+    subtitle: "fiction almost never flips. stick to non fiction shelves with niche topics and boring covers...that’s where the real profit hides."
   },
 	{
     title: "condition don't matter that much",
@@ -62,14 +86,34 @@ const tips = [
     title: "saturday mornings = sourcing goldmine",
     subtitle: "go early. garage sales, charity shops & brocantes put fresh stock out on weekends. first in = first flips."
   },
+  {
+    title: "you only need a few winners to make real money",
+    subtitle: "out of 100 scanned books maybe 5–10 are profitable… but those flips alone can cover all your buying costs and more"
+  },
 ]
 
 // App plugs pool
 const appPlugs = [
   {
     title: "scan before u buy!! 95% of books aren’t worth it",
-    subtitle: "use apps like BookSniper to instantly check if a book is profitable. It scans the name and shows how much it seeks for on Amazon/Ebay + shows you your profit margin"
+    subtitle: "use apps like BookSniper to instantly check if a book is profitable. it scans the name and shows how much it seeks for on Amazon/Ebay + shows you your profit margin"
   },
+  {
+    title: "scan before you buy 📚",
+    subtitle: "most second hand books aren’t worth flipping. apps like BookSniper let you scan multiple books at once & check resale value instantly on Amazon / Vinted or eBay so u know exactly how much you can make"
+  },
+  {
+    title: "flip smarter not harder",
+    subtitle: "There's apps like BookSniper which makes reselling books easier by scanning barcodes & showing resale value. takes 2 seconds and avoids losing money on bad books"
+  },
+  {
+    title: "optimize your flips",
+    subtitle: "I recommend using apps like BookSniper which scans every books and shows their current selling price online. it even estimates the profit margin based on your cost"
+  },
+  {
+    title: "don’t buy blind",
+    subtitle: "apps like BookSniper help avoid unprofitable purchases by scanning the title and checking live resale prices. super useful!!"
+  }
 ]
 
 // TikTok sounds pool (same as admitted)
@@ -179,6 +223,18 @@ export default function BooksniperClient({ imageSets }) {
     let hookText = hookObj.text
     const hookImageTag = hookObj.imageTag
     
+    // Replace monthly amount placeholder with random value between 4 and 9
+    const monthlyAmount = Math.floor(Math.random() * 6) + 4 // 4 to 9 inclusive
+    hookText = hookText.replace(/\{MONTHLY_AMOUNT\}/g, monthlyAmount)
+    
+    // Replace monthly income placeholder with random value between 1000 and 5000
+    const monthlyIncome = Math.floor(Math.random() * 4001) + 1000 // 1000 to 5000 inclusive
+    hookText = hookText.replace(/\{MONTHLY_INCOME\}/g, monthlyIncome)
+    
+    // Replace flip profit placeholder with random value between 150 and 210
+    const flipProfit = Math.floor(Math.random() * 61) + 150 // 150 to 210 inclusive
+    hookText = hookText.replace(/\{FLIP_PROFIT\}/g, `$${flipProfit}`)
+    
     // Screen 2: Always select from businessModelContext
     const businessContext = businessModelContext[Math.floor(Math.random() * businessModelContext.length)]
     
@@ -192,12 +248,36 @@ export default function BooksniperClient({ imageSets }) {
     // Screen 5: Always a tip (not an app plug) - different from screen 3
     const screen5Tip = shuffledTips.length > 1 ? shuffledTips[1] : shuffledTips[0]
     
-    // Select images for each screen
+    // Select unique images for each screen (no duplicates)
     const hookImage = selectHookImage(hookImageTag)
-    const businessContextImage = selectRandomImage(imageSets?.tips)
-    const screen3Image = selectRandomImage(imageSets?.tips)
     const screen4Image = selectCTAImage()
-    const screen5Image = selectRandomImage(imageSets?.tips)
+    
+    // Create a pool of available tip images and select unique ones
+    const availableTipImages = [...(imageSets?.tips || [])]
+    const usedImages = new Set()
+    
+    // Helper function to select a unique image from the pool
+    const selectUniqueTipImage = () => {
+      if (availableTipImages.length === 0) return null
+      
+      // Filter out already used images
+      const unusedImages = availableTipImages.filter(img => !usedImages.has(img))
+      
+      if (unusedImages.length === 0) {
+        // If all images are used, reset and start over (shouldn't happen with 3 screens)
+        usedImages.clear()
+        return selectRandomImage(availableTipImages)
+      }
+      
+      const selectedImage = selectRandomImage(unusedImages)
+      usedImages.add(selectedImage)
+      return selectedImage
+    }
+    
+    // Select unique images for screens that use tip images
+    const businessContextImage = selectUniqueTipImage()
+    const screen3Image = selectUniqueTipImage()
+    const screen5Image = selectUniqueTipImage()
     
     // Create the post with 5 screens (1 hook + 1 business context + 1 tip + 1 app plug + 1 tip) + caption card
     const newPost = [
