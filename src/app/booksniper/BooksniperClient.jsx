@@ -27,7 +27,7 @@ const hooks = [
 	{ text: "how i turned a 40 dollar investment into over 20,000$ selling used books"},
 	{ text: "i made {FLIP_PROFIT} flipping a book i got for 1$ at a flea market. here's how 👉"},
 	{ text: "i made over $800 last month selling used books... here’s how u can do it too"},
-	{ text: "i make $1500 per monthscanning books at thrift stores. Yes, really. here's how 👉"},
+	{ text: "i make $1500 per month scanning books at thrift stores. Yes, really. here's how 👉"},
 	{ text: "here’s how i quit selling my body on OF and started book reselling instead"},
 ]
 
