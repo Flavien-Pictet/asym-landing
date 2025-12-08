@@ -10,7 +10,11 @@ export default function AdmittedPage() {
   useEffect(() => {
     async function fetchImages() {
       try {
-        const response = await fetch('/api/admitted/images')
+        // Load from static JSON file instead of API route
+        const response = await fetch('/manifests/admitted-images.json')
+        if (!response.ok) {
+          throw new Error('Failed to load images manifest')
+        }
         const data = await response.json()
         setImageSets(data)
       } catch (error) {
