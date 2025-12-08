@@ -229,7 +229,16 @@ export default function BooksniperClient({ imageSets }) {
     hookText = hookText.replace(/\{MONTHLY_AMOUNT\}/g, monthlyAmount)
     
     // Replace monthly income placeholder with random value between 1000 and 5000
-    const monthlyIncome = Math.floor(Math.random() * 4001) + 1000 // 1000 to 5000 inclusive
+    // Generate with more variation in tens and units (not just hundreds and thousands)
+    const baseAmount = Math.floor(Math.random() * 4) + 1 // 1 to 4 (thousands: 1000-4000)
+    const hundreds = Math.floor(Math.random() * 10) * 100 // 0, 100, 200, ..., 900
+    const tensAndUnits = Math.floor(Math.random() * 100) // 0 to 99 for more variation
+    let monthlyIncome = baseAmount * 1000 + hundreds + tensAndUnits
+    // Ensure we can reach up to 5000 by adding a chance for 5000+ range
+    if (Math.random() < 0.2 && monthlyIncome < 5000) {
+      // 20% chance to be in 4500-5000 range
+      monthlyIncome = Math.floor(Math.random() * 501) + 4500 // 4500 to 5000
+    }
     hookText = hookText.replace(/\{MONTHLY_INCOME\}/g, monthlyIncome)
     
     // Replace flip profit placeholder with random value between 150 and 210
