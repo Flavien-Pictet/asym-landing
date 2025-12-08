@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     outputFileTracingExcludes: {
       '*': [
-        'public/assets/images/**/*',
+        'public/assets/images/admitted-tips/**/*',
       ],
     },
   },
