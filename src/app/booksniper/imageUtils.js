@@ -62,12 +62,12 @@ export function getImagesBySubdirectory(baseDirectoryPath) {
 
 // Get all image sets needed for the app
 // Uses admitted-hooks/general for hooks (same as admitted)
-// Uses booksniper-tips for tips backgrounds
+// Uses admitted-tips for tips backgrounds
 // Uses booksniper-cta for app plug backgrounds
 export function getAllImageSets() {
   return {
     hooks: getImagesBySubdirectory('assets/images/admitted-hooks'),
-    tips: getImagesFromDirectory('assets/images/booksniper-tips'),
+    tips: getImagesFromDirectory('assets/images/admitted-tips'),
     cta: getImagesFromDirectory('assets/images/booksniper-cta')
   }
 }

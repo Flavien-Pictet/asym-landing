@@ -67,7 +67,7 @@ function getImagesBySubdirectory(baseDirectoryPath) {
 function generateBooksniperManifest() {
   return {
     hooks: getImagesBySubdirectory('assets/images/admitted-hooks'),
-    tips: getImagesFromDirectory('assets/images/booksniper-tips'),
+    tips: getImagesFromDirectory('assets/images/admitted-tips'),
     cta: getImagesFromDirectory('assets/images/booksniper-cta')
   }
 }
