@@ -629,7 +629,7 @@ export default function AgreementForm({ appConfig, contract }) {
 					>
 						<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 md:p-10">
 							<form onSubmit={handleSubmit}>
-								<h3 className="text-lg font-semibold text-gray-900 pb-4 border-b border-gray-200" style={{ marginBottom: '32px' }}>
+								<h3 className="text-lg font-semibold text-gray-900 border-b border-gray-200" style={{ paddingBottom: '20px', marginBottom: '32px' }}>
 									Creator Information
 								</h3>
 
@@ -898,7 +898,7 @@ export default function AgreementForm({ appConfig, contract }) {
 								className="mt-20 pt-16 border-t border-gray-200"
 							>
 								<div className="flex flex-col items-start space-y-6">
-									<p className="text-sm font-medium text-gray-500">Advertiser's Signature:</p>
+									<p className="text-sm font-medium text-gray-500" style={{ marginTop: '20px' }}>Advertiser's Signature:</p>
 									<div className="relative" style={{ width: '76.8px', aspectRatio: '1 / 0.91' }}>
 										<NextImage
 											src="/assets/images/signature.png"
